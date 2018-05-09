@@ -30,17 +30,20 @@ echo form_open('validar_devolucion_producto', $attr);
 <br>
 <div class="row">
 
-	<h4 class="col-xs-12 col-sm-12 col-md-3">Devolución de Productos</h4>
+	<div class="col-xs-12 col-sm-12 col-md-12">
+		<h4>Devolución de Productos</h4>
+		<hr>
+	</div>
 
 <!--almacen Asociado -->
 					<input type="hidden" id="mi_perfil" name="mi_perfil" value="<?php echo $this->session->userdata( 'id_perfil' ); ?>">
 
 					
 
-					<div class="col-xs-12 col-sm-6 col-md-3" <?php echo 'style="display:'.( (($config_almacen->activo==0) && ($el_perfil==2) ) ? 'none':'block').'"'; ?> >
+					<div class="col-xs-12 col-sm-6 col-md-2 col-md-offset-4" <?php echo 'style="display:'.( (($config_almacen->activo==0) && ($el_perfil==2) ) ? 'none':'block').'"'; ?> >
 					    
-							<label for="id_almacen" class="col-sm-3 col-md-3 control-label">Almacén</label>
-							<div class="col-sm-9 col-md-10">
+							<label for="id_almacen" class="control-label">Almacén</label>
+							<div class="">
 							    <!--Los administradores o con permisos de entrada 
 							    							****2121 sistema.js por ajax deshabilita sino hay en la regilla 
 							    	que no sean almacenista 

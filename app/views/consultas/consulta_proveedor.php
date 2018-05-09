@@ -8,7 +8,7 @@
     }
 ?>    
 
-<div class="container">
+<div class="container blanco">
 
 <br>
 

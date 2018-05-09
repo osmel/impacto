@@ -22,7 +22,7 @@
 
 <div class="container margenes">
 <div class="panel panel-primary">
-<div class="panel-heading">Detalles del Orden de Compra</div>
+<div class="panel-heading">Detalles de la Orden de Compra</div>
 <div class="panel-body">		
 	
 	<div class="row">		

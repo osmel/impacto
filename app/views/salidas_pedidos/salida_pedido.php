@@ -221,11 +221,11 @@
 								
 							<div class="form-group">
 
-								<button data-on="Cliente" data="editar_proveedor" class="btn btn-danger  on-off <?php echo (($val_proveedor) ? (($val_proveedor->on_off==0) ? 'activo' : 'btn-outline' ) :'activo' ); ?>" >Cliente</button>
+								<button data-on="Cliente" data="editar_proveedor" class="btn btn-danger  on-off <?php echo (($val_proveedor) ? (($val_proveedor->on_off==0) ? 'activo' : 'btn-outline' ) :'activo' ); ?>" style="margin-bottom: 5px">Cliente</button>
 
-								<button data-on="Tienda" data="editar_tienda" class="btn btn-success on-off <?php echo (($val_proveedor) ? (($val_proveedor->on_off==1) ? 'activo' : 'btn-outline') :'btn-outline' ); ?>" >Tienda</button>
+								<button data-on="Tienda" data="editar_tienda" class="btn btn-success on-off <?php echo (($val_proveedor) ? (($val_proveedor->on_off==1) ? 'activo' : 'btn-outline') :'btn-outline' ); ?>" style="margin-bottom: 5px">Tienda</button>
 								
-								<button  data-on="Bodega" data="editar_bodega" class="btn btn-warning on-off <?php echo (($val_proveedor) ? (($val_proveedor->on_off==2) ? 'activo' : 'btn-outline') :'btn-outline' ); ?>" >Bodega</button>
+								<button  data-on="Bodega" data="editar_bodega" class="btn btn-warning on-off <?php echo (($val_proveedor) ? (($val_proveedor->on_off==2) ? 'activo' : 'btn-outline') :'btn-outline' ); ?>" style="margin-bottom: 5px">Bodega</button>
 
 								
 								

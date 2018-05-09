@@ -22,7 +22,7 @@
 						
 							<div class="col-md-3"></div>
 								<div class="col-md-6">
-									<a href="<?php echo base_url(); ?>productos" type="button" class="btn btn-primary btn-lg btn-block">Tipos de Telas (Productos)</a>
+									<a href="<?php echo base_url(); ?>productos" type="button" class="btn btn-success btn-lg btn-block">Tipos de Telas (Productos)</a>
 								</div>
 							<div class="col-md-3"></div>
 							
@@ -33,7 +33,7 @@
 					<div class="row">
 						<div class="col-md-3"></div>
 							<div class="col-md-6">
-								<a href="<?php echo base_url(); ?>colores" type="button" class="btn btn-primary btn-lg btn-block" >Colores</a>
+								<a href="<?php echo base_url(); ?>colores" type="button" class="btn btn-success btn-lg btn-block" >Colores</a>
 							</div>
 						<div class="col-md-3"></div>
 					</div>
@@ -43,7 +43,7 @@
 					<div class="row">
 						<div class="col-md-3"></div>
 							<div class="col-md-6">
-								<a href="<?php echo base_url(); ?>composiciones" type="button" class="btn btn-primary btn-lg btn-block" >Composiciones</a>
+								<a href="<?php echo base_url(); ?>composiciones" type="button" class="btn btn-success btn-lg btn-block" >Composiciones</a>
 							</div>
 						<div class="col-md-3"></div>
 					</div>
@@ -58,7 +58,7 @@
 						<div class="col-md-3"></div>
 
 							<div class="col-md-6">
-								<a href="<?php echo base_url(); ?>proveedores" type="button" class="btn btn-primary btn-lg btn-block">Proveedores / Clientes / Sucursales</a>
+								<a href="<?php echo base_url(); ?>proveedores" type="button" class="btn btn-success btn-lg btn-block">Proveedores / Clientes / Sucursales</a>
 							</div>
 
 						<div class="col-md-3"></div>
@@ -70,7 +70,7 @@
 					<div class="row">
 						<div class="col-md-3"></div>
 							<div class="col-md-6">
-								<a href="<?php echo base_url(); ?>anchos" type="button" class="btn btn-primary btn-lg btn-block" >Anchos de Telas</a>
+								<a href="<?php echo base_url(); ?>anchos" type="button" class="btn btn-succes btn-lg btn-block" >Anchos de Telas</a>
 							</div>
 						<div class="col-md-3"></div>
 					</div>-->
@@ -80,7 +80,7 @@
 					<div class="row">
 						<div class="col-md-3"></div>
 							<div class="col-md-6">
-								<a href="<?php echo base_url(); ?>cargadores" type="button" class="btn btn-primary btn-lg btn-block" >Cargadores</a>
+								<a href="<?php echo base_url(); ?>cargadores" type="button" class="btn btn-success btn-lg btn-block" >Cargadores</a>
 							</div>
 						<div class="col-md-3"></div>
 					</div>					
@@ -91,7 +91,7 @@
 					<div class="row">
 						<div class="col-md-3"></div>
 							<div class="col-md-6">
-								<a href="<?php echo base_url(); ?>calidades" type="button" class="btn btn-primary btn-lg btn-block">Calidades</a>
+								<a href="<?php echo base_url(); ?>calidades" type="button" class="btn btn-success btn-lg btn-block">Calidades</a>
 							</div>
 						<div class="col-md-3"></div>
 					</div>				
@@ -108,7 +108,7 @@
 					<div class="row">
 						<div class="col-md-3"></div>
 							<div class="col-md-6">
-								<a href="<?php echo base_url(); ?>almacenes" type="button" class="btn btn-primary btn-lg btn-block">Almacenes</a>
+								<a href="<?php echo base_url(); ?>almacenes" type="button" class="btn btn-success btn-lg btn-block">Almacenes</a>
 							</div>
 						<div class="col-md-3"></div>
 					</div>				
@@ -118,18 +118,7 @@
 					<div class="row">
 						<div class="col-md-3"></div>
 							<div class="col-md-6">
-								<a href="<?php echo base_url(); ?>tipos_facturas" type="button" class="btn btn-primary btn-lg btn-block">Tipos de Facturas</a>
-							</div>
-						<div class="col-md-3"></div>
-					</div>				
-				
-				
-
-				
-					<div class="row">
-						<div class="col-md-3"></div>
-							<div class="col-md-6">
-								<a href="<?php echo base_url(); ?>tipos_pedidos" type="button" class="btn btn-primary btn-lg btn-block">Tipos de pedidos</a>
+								<a href="<?php echo base_url(); ?>tipos_facturas" type="button" class="btn btn-success btn-lg btn-block">Tipos de Facturas</a>
 							</div>
 						<div class="col-md-3"></div>
 					</div>				
@@ -140,7 +129,18 @@
 					<div class="row">
 						<div class="col-md-3"></div>
 							<div class="col-md-6">
-								<a href="<?php echo base_url(); ?>tipos_ventas" type="button" class="btn btn-primary btn-lg btn-block">Tipos de ventas</a>
+								<a href="<?php echo base_url(); ?>tipos_pedidos" type="button" class="btn btn-success btn-lg btn-block">Tipos de pedidos</a>
+							</div>
+						<div class="col-md-3"></div>
+					</div>				
+				
+				
+
+				
+					<div class="row">
+						<div class="col-md-3"></div>
+							<div class="col-md-6">
+								<a href="<?php echo base_url(); ?>tipos_ventas" type="button" class="btn btn-success btn-lg btn-block">Tipos de ventas</a>
 							</div>
 						<div class="col-md-3"></div>
 					</div>				
@@ -150,7 +150,7 @@
 					<div class="row">
 						<div class="col-md-3"></div>
 							<div class="col-md-6">
-								<a href="<?php echo base_url(); ?>configuraciones" type="button" class="btn btn-primary btn-lg btn-block">Configuraciones</a>
+								<a href="<?php echo base_url(); ?>configuraciones" type="button" class="btn btn-success btn-lg btn-block">Configuraciones</a>
 							</div>
 						<div class="col-md-3"></div>
 					</div>				
@@ -170,7 +170,7 @@
 					<div class="row">
 						<div class="col-md-3"></div>
 							<div class="col-md-6">
-								<a href="<?php echo base_url(); ?>unidades_medidas" type="button" class="btn btn-primary btn-lg btn-block">**Unidades de medidas</a>
+								<a href="<?php echo base_url(); ?>unidades_medidas" type="button" class="btn btn-success btn-lg btn-block">**Unidades de medidas</a>
 							</div>
 						<div class="col-md-3"></div>
 					</div>
@@ -182,7 +182,7 @@
 					<div class="row">
 						<div class="col-md-3"></div>
 						<div class="col-md-6">
-							<a href="<?php echo base_url(); ?>actividades_comerciales" type="button" class="btn btn-primary btn-lg btn-block">****Actividades comerciales</a>
+							<a href="<?php echo base_url(); ?>actividades_comerciales" type="button" class="btn btn-success btn-lg btn-block">****Actividades comerciales</a>
 						</div>
 						<div class="col-md-3"></div>
 					</div>						
@@ -194,7 +194,7 @@
 					<div class="row">
 						<div class="col-md-3"></div>
 						<div class="col-md-6">
-							<a href="<?php echo base_url(); ?>operaciones" type="button" class="btn btn-primary btn-lg btn-block">**Operaciones</a>
+							<a href="<?php echo base_url(); ?>operaciones" type="button" class="btn btn-success btn-lg btn-block">**Operaciones</a>
 						</div>
 						<div class="col-md-3"></div>
 					</div>

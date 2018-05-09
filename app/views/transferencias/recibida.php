@@ -48,8 +48,10 @@ if ($val_proveedor) {
 
 
 	<div class="row">
-
-		<h4 class="col-xs-12 col-sm-6 col-md-8">Registro de Transferencia</h4>
+		<div class="col-xs-12 col-sm-12 col-md-12">
+			<h4>Registro de Transferencia</h4>
+			<hr>
+		</div>
 
 		<input type="hidden" id="oculto_producto" name="oculto_producto" value="" color="" composicion="" calidad="">
 

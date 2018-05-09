@@ -19,11 +19,19 @@
 
 
 ?>   
-					<div class="col-md-2" > </div>
+					<!--<div class="col-md-2" > </div>
 	                <div class="col-md-2" >
 	                		<span> Productos Devueltos</span>
 	                			<div style="margin-right: 15px;float:left;background-color:#ab1d1d;width:15px;height:15px;"></div> 
-                	</div>
+                	</div>-->
+<div class="container">
+	<div class="row">
+	    <div class="col-md-6" >
+	    		<span> Productos Devueltos</span>
+	    			<div style="margin-right: 15px;float:left;background-color:#ab1d1d;width:15px;height:15px;"></div> 
+		</div>
+	</div>
+</div>
 
 <div class="container margenes">
 
@@ -154,9 +162,9 @@
 					<div class="table-responsive">
 
 						<h4>Vencidas</h4>	
-						<br>	
+						<hr>	
 
-							<fieldset id="disa_vencidas" disabled>
+							<fieldset id="disa_vencidas" disabled class="row">
 								<div class="col-sm-3 col-md-3 marginbuttom">
 									<a id="impresion_vencidas" type="button" class="btn btn-success btn-block impresion_ctas" tipo="vencidas">Imprimir</a>
 								</div>
@@ -188,14 +196,15 @@
 							
 							
 								<!--Rango de fecha -->
+								<div class="row">
 								<div class="col-xs-12 col-sm-6 col-md-3">
-										<label id="label_proveedor" for="descripcion" class="col-sm-12 col-md-12">Rango de fecha vencida</label>
-										<div class="input-prepend input-group  form-group" style="padding-left:15px !important;padding-right:15px !important;">
+										<label id="label_proveedor" for="descripcion">Rango de fecha vencida</label>
+										<div class="input-prepend input-group  form-group">
 				                       		<span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
 											<input id="foco_historicos" tipo="vencidas" vista="ctas_vencida" type="text" name="permisos"  class="form-control col-sm-12 col-md-12 fecha_historicos ttip" title="Seleccione un rango de fechas para filtrar los resultados." value="" format = "DD-MM-YYYY"/> 
 										</div>	
-				                </div>								
-							<br>
+				                </div>
+				                </div>
 
 
 						<section>
@@ -267,9 +276,9 @@
 					<hr style="padding: 0px; margin: 15px;"/>					
 					<div class="table-responsive">
 						<h4>Por Pagar</h4>	
-						<br>	
+						<hr>	
 
-							<fieldset id="disa_xpagar" disabled>
+							<fieldset id="disa_xpagar" disabled class="row">
 								<div class="col-sm-3 col-md-3 marginbuttom">
 									<a id="impresion_ctasxpagar" type="button" class="btn btn-success btn-block impresion_ctas" tipo="xpagar">Imprimir</a>
 								</div>
@@ -300,15 +309,17 @@
 							</fieldset>			
 
 								<!--Rango de fecha -->
+								<div class="row">
 								<div class="col-xs-12 col-sm-6 col-md-3">
 										<label id="label_proveedor" for="descripcion" class="col-sm-12 col-md-12">Rango de fecha de vencimiento</label>
-										<div class="input-prepend input-group  form-group" style="padding-left:15px !important;padding-right:15px !important;">
+										<div class="input-prepend input-group  form-group">
 				                       		<span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
 											<input id="foco_historicos" tipo="xpagar" vista="ctas_ctasxpagar" type="text" name="permisos"  class="form-control col-sm-12 col-md-12 fecha_historicos ttip" title="Seleccione un rango de fechas para filtrar los resultados." value="" format = "DD-MM-YYYY"/> 
 										</div>	
-				                </div>								
+				                </div>	
+				                </div>							
 
-							<br>
+							
 
 						<section>
 							<table id="tabla_ctasxpagar" class="display table table-striped table-bordered table-responsive" cellspacing="0" width="100%">
@@ -379,10 +390,10 @@
 				<hr style="padding: 0px; margin: 15px;"/>					
 					<div class="table-responsive">
 						<h4>Pagadas</h4>	
-						<br>	
+						<hr>	
 
 
-							<fieldset id="disa_pagadas" disabled>
+							<fieldset id="disa_pagadas" disabled class="row">
 								<div class="col-sm-3 col-md-3 marginbuttom">
 									<a id="impresion_pagadas" type="button" class="btn btn-success btn-block impresion_ctas" tipo="pagadas">Imprimir</a>
 								</div>
@@ -405,22 +416,29 @@
 
 							</fieldset>			
 								<!--Rango de fecha -->
-								<div class="col-xs-12 col-sm-6 col-md-3">
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 col-md-3">
 										<label id="label_proveedor" for="descripcion" class="col-sm-12 col-md-12">Rango de fecha pagadas</label>
-										<div class="input-prepend input-group  form-group" style="padding-left:15px !important;padding-right:15px !important;">
-				                       		<span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
-											<input id="foco_historicos" tipo="pagadas" vista="ctas_pagadas" type="text" name="permisos"  class="form-control col-sm-12 col-md-12 fecha_historicos ttip" title="Seleccione un rango de fechas para filtrar los resultados." value="" format = "DD-MM-YYYY"/> 
+										<div class="input-prepend input-group  form-group">
+					                       	<span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+												<input id="foco_historicos" tipo="pagadas" vista="ctas_pagadas" type="text" name="permisos"  class="form-control col-sm-12 col-md-12 fecha_historicos ttip" title="Seleccione un rango de fechas para filtrar los resultados." value="" format = "DD-MM-YYYY"/> 
 										</div>	
-				                </div>		
+					                </div>	
+					            </div>	
 
-							<div class="col-md-7">		
+							<!--<div class="col-md-7">		
 							   
 							   <div class="col-md-5 leyen_home"  style="display: block;"><span> Recargos o Descuentos</span><div style="border: 1px solid black; margin-right: 15px;float:left;background-color:#fcf8e3;width:15px;height:15px;"></div> </div>
 
 
 							   <div class="col-md-4 leyen_home"  style="display: block;"><span> Exceso de pago</span><div style="border: 1px solid black; margin-right: 15px;float:left;background-color:#f2dede;width:15px;height:15px;"></div> </div>
-						   </div>
-
+						   </div>-->
+						   		 <div class="row">
+																			   
+									   <div class="col-md-3 leyen_home"  style="display: block;"><span> Recargos o Descuentos</span><div style="border: 1px solid black; margin-right: 15px;float:left;background-color:#fcf8e3;width:15px;height:15px;"></div> </div>
+									   <div class="col-md-3 leyen_home"  style="display: block;"><span> Exceso de pago</span><div style="border: 1px solid black; margin-right: 15px;float:left;background-color:#f2dede;width:15px;height:15px;"></div> </div>
+								   
+						   		</div>
 
 							<br>						
 

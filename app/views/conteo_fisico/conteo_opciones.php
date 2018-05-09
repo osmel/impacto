@@ -22,7 +22,7 @@
 						
 							<div class="col-md-3"></div>
 								<div class="col-md-6">
-									<a href="<?php echo base_url(); ?>informe_pendiente" type="button" class="btn btn-primary btn-lg btn-block">Generar conteos</a>
+									<a href="<?php echo base_url(); ?>informe_pendiente" type="button" class="btn btn-success btn-lg btn-block">Generar conteos</a>
 								</div>
 							<div class="col-md-3"></div>
 							
@@ -33,7 +33,7 @@
 					<div class="row">
 						<div class="col-md-3"></div>
 							<div class="col-md-6">
-								<a href="<?php echo base_url(); ?>historico_conteo" type="button" class="btn btn-primary btn-lg btn-block" >Historicos de conteos</a>
+								<a href="<?php echo base_url(); ?>historico_conteo" type="button" class="btn btn-success btn-lg btn-block" >Historicos de conteos</a>
 							</div>
 						<div class="col-md-3"></div>
 					</div>

@@ -60,7 +60,7 @@
 				<div class="col-xs-12 col-sm-6 col-md-4">
 				<label for="movimiento" class="ttip" title="Campo informativo, no editable.">No. Movimiento</label>
 					<fieldset disabled>
-						<div class="form-group">
+						<div class="form-group row">
 							
 							<div style="margin-top: 0px;" class="col-xs-12 col-sm-4 col-md-6">
 								<input type="text" value="<?php echo $consecutivo_actual+1; ?>" class="form-control" id="movimiento" name="movimiento" placeholder="No. Movimiento">
@@ -101,8 +101,8 @@
 					<!--almacen Asociado -->
 					<div class="col-xs-12 col-sm-6 col-md-4" <?php echo 'style="display:'.( (($config_almacen->activo==0) && ($el_perfil==2) ) ? 'none':'block').'"'; ?>>
 					    
-							<label for="id_almacen_modulo" class="col-sm-3 col-md-3 control-label">Almacén</label>
-							<div class="col-sm-9 col-md-10">
+							<label for="id_almacen_modulo" class="control-label">Almacén</label>
+							<div>
 							    <!--Los administradores o con permisos de traspaso 
 							    	Y que no este inhabilitado y 
 							    	que no sean almacenista 
@@ -140,8 +140,8 @@
 					<!--Tipos de factura -->
 						<div class="col-xs-12 col-sm-6 col-md-4 tipo_factura1">
 
-								<label for="id_tipo_factura_traspaso" id="label_tipo_factura_traspaso" class="col-sm-3 col-md-12"></label>
-								<div class="col-sm-9 col-md-12">
+								<label for="id_tipo_factura_traspaso" id="label_tipo_factura_traspaso" style="margin-top: 10px;"></label>
+								<div>
 								    <!--Los administradores o con permisos de entrada 
 								    	Y que no este inhabilitado y 
 								    	que no sean facturaista 

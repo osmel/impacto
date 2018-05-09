@@ -82,13 +82,14 @@
 
 
 
-			
-			<h4>Listado de productos</h4>	
-			<hr style="padding: 0px; margin: 15px;"/>					
-
+		<div class="panel panel-primary">
+			<div class="panel-heading">Listado de productos</div>
+			<div class="panel-body">
 
 			<div class="table-responsive">
+				
 				<section>
+					
 					<table style="font-size: 12px;" id="tabla_cat_productos" class="display table table-striped table-bordered table-responsive" cellspacing="0" width="100%">
 						<thead>
 							<tr>
@@ -117,8 +118,17 @@
 							</tr>
 						</thead>
 					</table>
+
 				</section>
+
+			</div> <!--Table responsive-->
+
 			</div>
+		</div>
+
+
+
+
 		</div>
 	</div>
 

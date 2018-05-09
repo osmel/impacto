@@ -8,7 +8,7 @@
     }
 ?>    
 
-<div class="container">
+<div class="container blanco">
 			<br>
 			<h4>Consulta por Producto</h4>	
 				<hr style="padding: 0px; margin: 6px;"/>					

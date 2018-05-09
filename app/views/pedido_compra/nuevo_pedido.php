@@ -23,14 +23,14 @@
 
 <div class="container margenes">
 <div class="panel panel-primary">
-<div class="panel-heading">Detalles del Orden de Compra</div>
+<div class="panel-heading">Detalles de la Orden de Compra</div>
 <div class="panel-body">		
 	
 	<div class="row">		
 		<!-- derecha comentarios-->	
 	   <div class="col-sm-12 col-md-8">
 			
-			<div >
+			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-4">
 					<fieldset disabled>
 					<div class="form-group">
@@ -76,8 +76,8 @@
 					<!--almacen Asociado -->
 					<div class="col-xs-12 col-sm-6 col-md-4" <?php echo 'style="display:'.( (($config_almacen->activo==0) && ($el_perfil==2) ) ? 'none':'block').'"'; ?>>
 					    
-							<label for="id_almacen_compra" class="col-sm-3 col-md-3 control-label">Almacén</label>
-							<div class="col-sm-9 col-md-12">
+							<label for="id_almacen_compra" class="control-label">Almacén</label>
+							<div>
 							    <!--Los administradores o con permisos de traspaso 
 							    	Y que no este inhabilitado y 
 							    	que no sean almacenista 
@@ -114,8 +114,8 @@
 
 					<div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:0px;">
 					    
-							<label for="id_proveedor_compra" class="col-sm-3 col-md-3 control-label">Proveedor</label>
-							<div class="col-sm-9 col-md-12">
+							<label for="id_proveedor_compra" class="control-label">Proveedor</label>
+							<div>
 							    <?php if (!$val_compra) { ?>
 											 <fieldset class="disabledme">				
 										<?php } else { ?>	
@@ -144,8 +144,8 @@
 
 					<div class="col-xs-12 col-sm-6 col-md-6" style="margin-top:0px;">
 					    
-							<label for="id_medida_compra" class="col-sm-3 col-md-3 control-label">Mts/kgs</label>
-							<div class="col-sm-9 col-md-12">
+							<label for="id_medida_compra" class="control-label">Mts/kgs</label>
+							<div>
 							    
 											 <fieldset >				
 										

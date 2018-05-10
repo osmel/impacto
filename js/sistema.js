@@ -186,6 +186,7 @@ jQuery("#id_perfil").on('change', function(e) {
 		        type : 'POST',
 		        dataType : 'json',
 		        success : function(midata) {
+		        	console.log(midata);
 
 						jQuery(".navbar-nav > li" ).each(function( index ) {
 							  if ('bar_'+midata == jQuery( this ).attr('id')) {

@@ -201,6 +201,8 @@ class Pdfs_model extends CI_Model
 
           $this->db->select('m.id_factura, m.c234, m.id_operacion, m.devolucion');
           $this->db->select('tipfac.tipo_factura, m.id_almacen');
+
+          $this->db->select('CONCAT(us.nombre," ",us.apellidos) as nombre_completo', false);
           
           $this->db->from($this->historico_registros_entradas.' as m');
           $this->db->join($this->almacenes.' As a' , 'a.id = m.id_almacen'); //AND a.activo=1
@@ -212,6 +214,7 @@ class Pdfs_model extends CI_Model
 
           
           $this->db->join($this->tipos_facturas.' As tipfac' , 'tipfac.id = m.id_factura'); 
+          $this->db->join($this->usuarios.' As us' , 'us.id = m.id_usuario','LEFT');          
 
 
           

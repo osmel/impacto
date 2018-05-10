@@ -612,7 +612,7 @@ public function detalles_salidas_bodegas($num_movimiento_pedido){
                $data['configuracion'] = $this->catalogo->coger_configuracion($dato); 
 
 			   
-               if ($this->session->userdata('config_salida')==1) {
+               if ($this->session->userdata('config_newsalida')==1) {
 			      switch ($id_perfil) {    
 			        case 1:          
 			                    $this->load->view( 'salidas/salida',$data );
@@ -877,7 +877,7 @@ public function procesando_servidor(){
 
 
 			   
-              if ($this->session->userdata('config_salida')==1) {
+              if ($this->session->userdata('config_newsalida')==1) {
 			      switch ($id_perfil) {    
 			        case 1:
 			        		

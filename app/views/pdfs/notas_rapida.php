@@ -19,6 +19,7 @@
 							<tr>
 								<td colspan="<?php echo (($this->session->userdata('id_perfil')==1) || ( (in_array(80, $coleccion_id_operaciones)) || (in_array(81, $coleccion_id_operaciones))   ) ) ? 7 : 6; ?>" style="border-top: 1px solid #222222; ">
 										<span><b>Proveedor: </b> <?php echo strtoupper($movimientos[0]->nombre); ?></span><br>
+                                                                                <span><b>Realizado: </b> <?php echo strtoupper($movimientos[0]->nombre_completo); ?></span><br>
 										<span><b>Fecha y hora: </b> <?php echo $movimientos[0]->fecha; ?></span><br>
 										<span><b>Movimiento: </b><?php  echo '['.(($movimientos[0]->id_operacion==72) ? 'B' : (($movimientos[0]->id_operacion==71) ? 'C' : (($movimientos[0]->devolucion<>0) ? 'D' :  (($movimientos[0]->id_operacion==70) ? 'T' : (($movimientos[0]->id_operacion==73) ? 'A' :'E') ) )) ).']  '.$movimientos[0]->id_almacen.'-'.$movimientos[0]->tipo_factura.'-'.(($movimientos[0]->devolucion<>0) ? $movimientos[0]->movimiento_unico : $movimientos[0]->c234); ?></span><br>
 										

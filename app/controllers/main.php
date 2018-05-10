@@ -118,14 +118,20 @@ class Main extends CI_Controller {
 			case '/transferencia_recibida':
 				$this->session->set_userdata('modulo', "entradas");		
 			break;
+
+			
+			case '/generar_pedidos':
+			case '/salidas':
+				$this->session->set_userdata('modulo', "generar_pedidos");		
+			break;
+
 			case '/':
 			case '/pedidos':
 			case '/devolucion':
-			case '/salidas':
 			case '/traspasos':
 			case '/pendiente_revision':
 			case '/listado_ctasxpagar':
-			case '/generar_pedidos':
+			
 			case '/editar_inventario':
 			case '/reportes':
 			case '/catalogos':

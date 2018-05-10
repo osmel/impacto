@@ -35,6 +35,9 @@
         $data['config_salida'] = $this->catalogo->coger_configuracion($dato); 
      	$this->session->set_userdata('config_salida', $this->catalogo->coger_configuracion($dato)->activo);
 
+		$dato['id'] = 15;
+        $data['config_newsalida'] = $this->catalogo->coger_configuracion($dato); 
+     	$this->session->set_userdata('config_newsalida', $this->catalogo->coger_configuracion($dato)->activo);
 
 		
 
@@ -184,9 +187,33 @@
 					<?php } ?>		
 
 					 <?php if ( ( $perfil == 1 ) || (in_array(4, $coleccion_id_operaciones)) ) { ?>
-						<li id="bar_generar_pedidos">
-							<a title="Pedidos desde una tienda o punto de venta." href="<?php echo base_url(); ?>generar_pedidos" class="ttip color-blanco">Pedido</a> 
-						</li>
+						
+					 <?php  if ($this->session->userdata('config_newsalida')==1) { ?>
+
+								<li id="bar_generar_pedidos" class="dropdown dropdown-user">
+		                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+		                            <span class="username username-hide-on-mobile color-blanco"> <i class="fa fa-angle-down"></i> Salidas </span>
+		                            
+		                        </a>
+		                       		 <ul class="dropdown-menu dropdown-menu-default">
+										<li>
+											<a title="Pedidos desde una tienda o punto de venta." href="<?php echo base_url(); ?>generar_pedidos" class="ttip ">Pedido</a> 
+										</li>
+
+										<li>
+											<a title="Pedidos desde una tienda o punto de venta." href="<?php echo base_url(); ?>salidas" class="ttip ">Salida</a> 
+										</li>
+
+
+			                        </ul>
+			                    </li>
+	                     <?php } else { ?>	
+
+		        				<li id="bar_generar_pedidos">
+									<a title="Pedidos desde una tienda o punto de venta." href="<?php echo base_url(); ?>generar_pedidos" class="ttip color-blanco">Pedido</a> 
+								</li>
+
+						<?php } ?>	
 					<?php } ?>	
 
 					 <?php if ( ( $perfil == 1 ) || (in_array(3, $coleccion_id_operaciones)) ) { ?>

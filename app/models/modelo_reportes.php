@@ -723,6 +723,7 @@
                            WHEN "4" THEN "ab1d1d"
                            WHEN "5" THEN "f1a914"
                            WHEN "6" THEN "14b80f"
+                           WHEN "8" THEN "14b80f" 
                            ELSE "No Apartado"
                         END AS apartado
             ',False);

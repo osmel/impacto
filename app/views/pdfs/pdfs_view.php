@@ -28,21 +28,23 @@ if (ltrim($retorno)=="") {
   
 $hidden = array('id_movimiento'=>$num_mov,'id_factura'=>$id_factura); 
 $attr = array('class' => 'form-horizontal', 'id'=>'form_entradas1','name'=>$retorno,'method'=>'POST','autocomplete'=>'off','role'=>'form');
+
+?>
+<div class="container ">
+<?php
 echo form_open('pdfs/generar', $attr,$hidden );
 ?>		
-<div class="container margenes">
+
 			<div class="panel panel-primary">
-
-
-
 
 			<div class="panel-heading">Número de Movimiento <?php echo $etiq_mov; ?>: <?php  echo '['.(($movimientos[0]->id_operacion==72) ? 'B' : (($movimientos[0]->id_operacion==71) ? 'C' : (($movimientos[0]->devolucion<>0) ? 'D' :  (($movimientos[0]->id_operacion==70) ? 'T' : (($movimientos[0]->id_operacion==73) ? 'A' :'E') ) )) ).']  '.$movimientos[0]->id_almacen.'-'.$movimientos[0]->tipo_factura.'-'.(($movimientos[0]->devolucion<>0) ? $movimientos[0]->movimiento_unico : $movimientos[0]->c234); ?>
 				     &nbsp;  &nbsp;  &nbsp; <b>Almacén</b>: <?php echo $movimientos[0]->almacen; ?>
 			</div>
+
 			<div class="panel-body">		
 					
 					
-				<div class="col-sm-<?php echo 'style="display:'.( (($config_impresion->activo==0) ) ? 6:0).'"'; ?> col-md-<?php echo 'style="display:'.( (($config_impresion->activo==0) ) ? 6:0).'"'; ?>">
+				<div class="col-sm-<?php echo 'style="display:'.( (($config_impresion->activo==0) ) ? 6:0).'"'; ?> col-md-<?php echo 'style="display:'.( (($config_impresion->activo==0) ) ? 6:0).'"'; ?>" >
 				</div>	
 
 				<div class="col-sm-3 col-md-3">
@@ -173,9 +175,20 @@ echo form_open('pdfs/generar', $attr,$hidden );
 					<div class="col-sm-4 col-md-3" style="margin-bottom:25px;">
 						<a href="<?php echo base_url(); ?><?php echo $retorno; ?>" class="btn btn-danger btn-block"><i class="glyphicon glyphicon-backward"></i><?php echo $regreso; ?></a>
 					</div>
-				</div>	
+				</div>
+
+			</div>
+
+			</div> <!--panel body-->
 
 		</div>
+</div>
+
+
+
+<?php echo form_close(); ?>
+
+</div>
 
 <div class="modal fade bs-example-modal-lg" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
@@ -184,7 +197,6 @@ echo form_open('pdfs/generar', $attr,$hidden );
 </div>	
 
 
-<?php echo form_close(); ?>
 
 <?php $this->load->view('footer'); ?>
 

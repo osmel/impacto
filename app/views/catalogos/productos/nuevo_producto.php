@@ -14,10 +14,13 @@
       	$retorno ="productos";
     }
 	 $attr = array('class' => 'form-horizontal', 'id'=>'form_prod','name'=>$retorno,'method'=>'POST','autocomplete'=>'off','role'=>'form');
+?>	
+<div class="container row" style="background-color:transparent !important">
+<?php
 	 echo form_open('validar_nuevo_producto', $attr);
 ?>		
 	
-	<div class="container row" style="background-color:transparent !important">
+	
 		<div class="panel panel-primary">
 			<div class="panel-heading">Datos del producto</div>
 			<div class="panel-body">
@@ -197,9 +200,9 @@
 		</div>
 
 	</div>
-</div>
-<?php echo form_close(); ?>
 
+<?php echo form_close(); ?>
+</div>
 <div class="modal fade bs-example-modal-lg" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog" style="margin-top:150px !important">
         <div class="modal-content"></div>

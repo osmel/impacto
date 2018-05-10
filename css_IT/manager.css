@@ -1,0 +1,306 @@
+@charset "utf-8";
+
+
+#addremove{
+  margin-top: 25px;
+  text-align: center;
+  width: 35px;
+}
+
+#addremove input[type="button"]{
+  width: 30px;
+}
+
+
+
+#subwrapp{
+  display: block;
+  margin: 0 auto;
+  width: 960px;
+}
+
+#text-footer{
+  display: inline-block;
+  font-size: 12px;
+  margin: 18px 0 18px 20px;
+  vertical-align: top;
+}
+
+#view-content{
+  background-color: #FBF9F7;
+  -moz-border-radius: 0 0 6px 6px;
+  -o-border-radius: 0 0 6px 6px;
+  -webkit-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  -moz-box-shadow: 1px 1px 4px #888;
+  -o-box-shadow: 1px 1px 4px #888;
+  -webkit-box-shadow: 1px 1px 4px #888;
+  box-shadow: 1px 1px 4px #888;
+  display: inline-block;
+  margin-left: 20px;
+  min-height: 200px;
+  vertical-align: top;
+  padding: 20px 30px;
+  width: 880px;
+}
+
+#view-content #login_form{
+  display: block;
+  margin: 0 auto;
+  width: 350px;
+}
+
+#wrapp{
+  display: block;
+  margin: 35px auto;
+  width: 1100px;
+}
+
+
+.forgot{
+  text-align: right;
+}
+
+
+
+.mini-bloque{
+  border-bottom: 1px solid #E6E2D9;
+  display: inline-block;
+  padding: 10px 0;
+  vertical-align: top;
+  width: 100%;
+}
+
+.mini-bloque:last-child{
+  border: none;
+}
+
+.mini-bloque.modelos span.add-tools-models{
+  display: block;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+.mini-bloque.modelos span.model-content{
+  border-bottom: 1px solid #E6E2D9;
+  display: inline-block;
+  margin: 10px 0;
+  padding-bottom: 10px;
+  width: 440px;
+}
+
+.mini-bloque h3{
+  display: block;
+  padding: 10px 0;
+}
+
+.mini-bloque a{
+  color: #007698;
+  text-decoration: none;
+}
+
+.mini-bloque.modelos h3{
+  display: inline-block;
+}
+
+.mini-bloque.modelos a{
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  margin-left: 5px;
+  padding: 0;
+  vertical-align: top;
+}
+
+.mini-bloque label{
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 0 5px 0;
+}
+
+.mini-bloque em{
+  color: #666;
+  display: block;
+  font-size: 11px;
+  font-style: italic;
+  padding-top: 5px;
+}
+
+.mini-bloque input, .mini-bloque textarea, .mini-bloque select{margin: 3px 0 5px 0; padding: 3px;}
+.mini-bloque select#categoria{height: 150px; width: 550px;}
+.mini-bloque select#lavado{min-height: 105px; height: 105px; width: 410px}
+.mini-bloque input[type="checkbox"]{margin-left: 10px; width: 13px;}
+.mini-bloque input, .mini-bloque select{line-height: 15px; }
+.mini-bloque input, .mini-bloque textarea{border-style: solid; border-width: 1px; width: 95%;}
+.mini-bloque input[type="submit"]{color: #ffffff; background-color: #007698; cursor: pointer;}
+.mini-bloque input[type="text"],
+.mini-bloque input[type="password"],
+.mini-bloque input[type="number"],
+.mini-bloque input[type="search"],
+.mini-bloque input[type="email"],
+.mini-bloque input[type="file"],
+.mini-bloque input[type="tel"],
+.mini-bloque input[type="url"], 
+.mini-bloque select, .mini-bloque textarea{
+  color: #333;
+  background-color: #ffffff;
+  border-color: #dfdfdf;
+  line-height: 15px;
+}
+
+.mini-bloque input[type="text"],
+.mini-bloque input[type="password"],
+.mini-bloque input[type="number"],
+.mini-bloque input[type="search"],
+.mini-bloque input[type="email"],
+.mini-bloque input[type="url"], 
+.mini-bloque textarea{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.mini-bloque input[type="text"],
+.mini-bloque input[type="password"],
+.mini-bloque input[type="number"],
+.mini-bloque input[type="search"],
+.mini-bloque input[type="email"],
+.mini-bloque input[type="url"], 
+.mini-bloque textarea, .mini-bloque select, .mini-bloque div{
+  outline: 0;
+}
+
+.mini-bloque input[type="text"],
+.mini-bloque input[type="password"],
+.mini-bloque input[type="number"],
+.mini-bloque input[type="search"],
+.mini-bloque input[type="email"],
+.mini-bloque input[type="file"],
+.mini-bloque input[type="tel"],
+.mini-bloque input[type="url"], 
+.mini-bloque textarea{
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  -ms-border-radius:3px;
+  -o-border-radius:3px;
+  border-radius:3px;
+}
+
+
+.multiples{
+  display: inline-block;
+  padding: 10px 0;
+  vertical-align: top;
+  width: 100%;
+}
+
+.multiples span{
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 20px 0 0;
+  width: 180px;
+}
+
+.multiples label{
+  display: block;
+  font-size: 12px;
+  padding: 2px 0;
+}
+
+.multiples em{
+  color: #666;
+  display: block;
+  font-size: 11px;
+  font-style: italic;
+  padding-top: 5px;
+}
+
+.multiples input, .multiples textarea, .multiples .select{
+  margin: 1px;
+  padding: 3px;
+}
+
+.multiples input, .multiples select{
+  line-height: 15px;
+}
+
+.multiples input, .multiples textarea, .multiples .select{
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+}
+
+.multiples .select{
+  min-height: 588px;
+}
+
+.multiples input[type="submit"]{
+  color: #ffffff;
+  background-color: #007698;
+  cursor: pointer;
+}
+
+.multiples input[type="text"],
+.multiples input[type="password"],
+.multiples input[type="number"],
+.multiples input[type="search"],
+.multiples input[type="email"],
+.multiples input[type="file"],
+.multiples input[type="tel"],
+.multiples input[type="url"], 
+.multiples select, .multiples textarea{
+  color: #333;
+  background-color: #ffffff;
+  border-color: #dfdfdf;
+  line-height: 15px;
+}
+
+.multiples input[type="text"],
+.multiples input[type="password"],
+.multiples input[type="number"],
+.multiples input[type="search"],
+.multiples input[type="email"],
+.multiples input[type="url"], 
+.multiples textarea{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.multiples input[type="text"],
+.multiples input[type="password"],
+.multiples input[type="number"],
+.multiples input[type="search"],
+.multiples input[type="email"],
+.multiples input[type="url"], 
+.multiples textarea, .multiples select, .multiples div{
+  outline: 0;
+}
+
+.multiples input[type="text"],
+.multiples input[type="password"],
+.multiples input[type="number"],
+.multiples input[type="search"],
+.multiples input[type="email"],
+.multiples input[type="file"],
+.multiples input[type="tel"],
+.multiples input[type="url"], 
+.multiples textarea{
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  -ms-border-radius:3px;
+  -o-border-radius:3px;
+  border-radius:3px;
+}
+
+#coloresSeccion{
+  margin-top:0px;
+  width:9px;
+  margin-left:6px;
+  margin-right:10px;
+}

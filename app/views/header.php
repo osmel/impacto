@@ -31,7 +31,7 @@
 
 						<div class="col-md-6 col-lg-6 col-sm-6 col-xs-9">
 							<div class="header-titulo text-right">Sistema de Control de Inventario</div>
-							<div class="text-right" style="color:#000000 !important"> Bienvenid@: <a href="<?php echo base_url(); ?>actualizar_perfil" style="color:#008fc5"><b><?php echo $this->session->userdata( 'nombre_completo' ); ?></b></a>
+							<div class="text-right" style="color:#000000 !important"> Bienvenid@: <a href="<?php echo base_url(); ?>actualizar_perfil" class="nom_us"><b><?php echo $this->session->userdata( 'nombre_completo' ); ?></b></a>
 						    </div>
 						    <div id="bar_salir">
 								<a title="" href="<?php echo base_url(); ?>salir" class="ttip color-blanco">Salir <i class="glyphicon glyphicon-log-out"></i></a>

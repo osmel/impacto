@@ -10,11 +10,15 @@
 	$config_almacen = $this->session->userdata( 'config_almacen' );
 	$el_perfil = $this->session->userdata( 'id_perfil' );    
 ?>   
-					<div class="col-md-2" > </div>
-	                <div class="col-md-2" >
-	                		<span> Productos Devueltos</span>
-	                			<div style="margin-right: 15px;float:left;background-color:#ab1d1d;width:15px;height:15px;"></div> 
-                	</div>
+					
+<div class="container">
+	<div class="row">
+		<div class="col-md-2" >
+			<div style="margin-right: 15px;float:left;background-color:#ab1d1d;width:15px;height:15px;"></div> 
+			<span> Productos Devueltos</span>
+	    </div>
+	</div>
+</div>
 
 <div class="container margenes">
 

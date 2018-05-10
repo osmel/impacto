@@ -24,12 +24,11 @@
 												<tr >
 													<td style="font-size: 12px; width:200px;height:100px;">
 														<p style="margin-top: 0px; line-height: 15px;">
-															Iniciativa Textil S.A. de C.V.<br>
-															Calle de Venustiano Carranza <br>
-															131-1 Centro. Delegación Cuauhtémoc<br>
-															Mexico, D.F. C.P. 06080<br>
-															Tel 5542 2391 ; 5522 1237<br>
-															RFC: ITE121106CQ1
+															Impacto Textil S.A. de C.V.<br>
+															Calle Venustiano Carranza 140<br>
+															Centro Histórico, Centro, C.P. 06060, <br>
+															D.F., México<br>
+															Tels. (55) 5542 5305 - (55) 5542 5304<br>
 														</p>
 													</td>
 													<td style="text-align: center; vertical-align: middle; line-height: 100%;"><br><br>

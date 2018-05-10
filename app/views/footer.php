@@ -2,12 +2,12 @@
     </div>
 
   </div>
-    <footer  style="background-color:#337ab7;"  class="container-fluid navbar-bottom footer">
+    <footer class="container-fluid navbar-bottom footer">
       <div class="container">
           
           <div style="margin-top:10px">
               <span style="color:#ffffff;">Sitio desarrollado por: 
-                <a href="http://estrategasdigitales.com/" style="color:#41e0f2 !important" target="_blank">Estrategas Digitales. 2015.</a></span>
+                <a href="http://estrategasdigitales.com/" target="_blank">Estrategas Digitales. 2015.</a></span>
               </span>
           </div>
 

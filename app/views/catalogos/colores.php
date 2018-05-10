@@ -59,6 +59,7 @@
 		</div>
 		<br/>
 	</div>
+	</div>
 
 <?php $this->load->view('footer'); ?>
 

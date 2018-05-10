@@ -7,7 +7,7 @@
 					
 					<div style="margin-top:10px">
                         <span style="color:#ffffff;">Sitio desarrollado por: 
-                        	<a href="http://estrategasdigitales.com/" target="_blank">Estrategas Digitales. 2015.</a></span>
+                        	<a href="http://estrategasdigitales.com/" target="_blank">Estrategas Digitales. 2018.</a></span>
                     	</span>
                     </div>
 

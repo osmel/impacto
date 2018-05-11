@@ -246,7 +246,6 @@ public function confirmar_proc_pedido_sino(){  //5252
 
 
 //2da regilla(modal).una vez confirmado los peso_real y cargador procesa la salida, mediante esta modal
-//public function proc_salida_pedido_definitivo($num_mov,$id_cargador,$id_tipo_pedido,$id_tipo_factura,$id_almacen){
 public function proc_salida_pedido_definitivo($num_mov,$id_cargador,$id_operacion_pedido,$id_almacen){
 
 
@@ -269,13 +268,18 @@ public function proc_salida_pedido_definitivo($num_mov,$id_cargador,$id_operacio
               if ($this->session->userdata('config_salida')==0) {
 			      switch ($id_perfil) {    
 			        case 1:
+			        case 2:
 			        		
 			                $this->load->view( 'salidas/salida_factura_modal',$data );
 			          break;
-			        case 2:
 			        case 3:
 			        case 4:
-			             if  (in_array(2, $data['coleccion_id_operaciones']))  {    
+			             if  ( 
+                          ( ($data['id_operacion_pedido']==4) &&  (in_array(2, $data['coleccion_id_operaciones'])))
+                          || ( ($data['id_operacion_pedido']==97) &&  (in_array(94, $data['coleccion_id_operaciones'])))
+                          || ( ($data['id_operacion_pedido']==98) &&  (in_array(95, $data['coleccion_id_operaciones'])))
+                        	) {    
+
 			                 $this->load->view( 'salidas/salida_factura_modal',$data );
 			              }  else  {
 			                redirect('');
@@ -398,14 +402,21 @@ public function detalles_salidas($mov_salida_unico=-1,$cliente=-1,$cargador=-1,$
 
 					      switch ($id_perfil) {    
 					        case 1:          
-								       
+					        case 2:
 					                   $this->load->view( 'pdfs/salidas/pdfs_view',$data );
 					          break;
-					        case 2:
 					        case 3:
 					        case 4:
 					              
-					              if  (in_array(9, $data['coleccion_id_operaciones']))  {   //los q tienen accesos a reportes
+			 						if  ( 
+			                          	    (in_array(2, $data['coleccion_id_operaciones']))
+			                          ||    (in_array(94, $data['coleccion_id_operaciones']))
+			                          ||	(in_array(95, $data['coleccion_id_operaciones']))
+			                          ||     (in_array(9, $data['coleccion_id_operaciones']))     //los q tienen accesos a reportes
+			                        	) { 
+
+
+
 					                   $this->load->view( 'pdfs/salidas/pdfs_view',$data );
 					              } else {
 					          		 redirect('');    	
@@ -458,7 +469,13 @@ public function detalles_salidas_bodegas($num_movimiento_pedido){
 					        case 3:
 					        case 4:
 					              
-					              if  (in_array(9, $data['coleccion_id_operaciones']))  {   //los q tienen accesos a reportes
+			 						if  ( 
+			                          	    (in_array(2, $data['coleccion_id_operaciones']))
+			                          ||    (in_array(94, $data['coleccion_id_operaciones']))
+			                          ||	(in_array(95, $data['coleccion_id_operaciones']))
+			                          ||     (in_array(9, $data['coleccion_id_operaciones']))     //los q tienen accesos a reportes
+			                        	) { 
+
 					                   $this->load->view( 'pdfs/salidas/multiples_salida_bodega',$data );
 					              } else {
 					          		 redirect('');    	
@@ -622,7 +639,9 @@ public function detalles_salidas_bodegas($num_movimiento_pedido){
 			        case 4:
 			              if  (in_array(2, $data['coleccion_id_operaciones']) )  {                 
 			                        $this->load->view( 'salidas/salida',$data );
-			             }   
+			             }   else {
+			          		redirect('');   	
+			             }
 			          break;
 
 
@@ -1017,7 +1036,15 @@ public function validar_confirmar_salida_sino(){
 			              
 			              //solo el que tiene 9 porque nos lleva a un detalle de reporte, este es para los botones que
 			        	  //aparecen en todo el sistema que tiene el numero de salida
-			              if ( (in_array(9, $data['coleccion_id_operaciones'])) || (in_array(50, $data['coleccion_id_operaciones']))   )  {   //los q tienen accesos a reportes
+			              
+			 						if  ( 
+			                          	    (in_array(2, $data['coleccion_id_operaciones']))
+			                          ||    (in_array(94, $data['coleccion_id_operaciones']))
+			                          ||	(in_array(95, $data['coleccion_id_operaciones']))
+			                          ||	(in_array(50, $data['coleccion_id_operaciones']))
+			                          ||     (in_array(9, $data['coleccion_id_operaciones']))     //los q tienen accesos a reportes
+			                        	) { 
+
 						       $data['movimientos']  = $this->modelo_salida->listado_movimientos_registros($data);
 			                   $this->load->view( 'pdfs/salidas/pdfs_view',$data );
 			              } else {

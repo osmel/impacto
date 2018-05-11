@@ -59,10 +59,10 @@ class Reportes extends CI_Controller {
   if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           } 
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       } 
 
 	              $data['medidas']  = $this->catalogo->listado_medidas();
 	             $data['estatuss']  = $this->catalogo->listado_estatus(-1,-1,-1);
@@ -82,7 +82,7 @@ class Reportes extends CI_Controller {
             case 2:
             case 3:
             case 4:
-                 if ( (in_array(9, $coleccion_id_operaciones)) || (in_array(61, $coleccion_id_operaciones)) ) {                 
+                 if ( (in_array(9, $data['coleccion_id_operaciones'])) || (in_array(61, $data['coleccion_id_operaciones'])) ) {                 
                             $this->load->view( 'reportes/reportes',$data );
                  }   
               break;
@@ -379,10 +379,10 @@ public function procesando_detalle_reporte(){
        if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }   
               $data['medidas']  = $this->catalogo->listado_medidas();
               $data['estatuss']  = $this->catalogo->listado_estatus(-1,-1,-1);
               $data['lotes']  = $this->catalogo->listado_lotes(-1,-1,'1');
@@ -398,7 +398,7 @@ public function procesando_detalle_reporte(){
             case 2:
             case 3:
             case 4:
-                  if  (in_array(61, $coleccion_id_operaciones))  {                 
+                  if  (in_array(61, $data['coleccion_id_operaciones']))  {                 
                             $this->load->view( 'reportes/costo_inventario/costo_inventario',$data );
                  }   
               break;
@@ -433,10 +433,10 @@ public function procesando_costo_inventario(){ //13=>$row->num_partida,
        if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }   
               $data['medidas']  = $this->catalogo->listado_medidas();
               $data['estatuss']  = $this->catalogo->listado_estatus(-1,-1,-1);
               $data['lotes']  = $this->catalogo->listado_lotes(-1,-1,'1');
@@ -452,7 +452,7 @@ public function procesando_costo_inventario(){ //13=>$row->num_partida,
             case 2:
             case 3:
             case 4:
-                  if  (in_array(61, $coleccion_id_operaciones))  {                 
+                  if  (in_array(61, $data['coleccion_id_operaciones']))  {                 
                             $this->load->view( 'reportes/costo_inventario/costo_rollo',$data );
                  }   
               break;

@@ -1673,12 +1673,41 @@
 
 
           $where_total = '( m.id_apartado = 5 ) or ( m.id_apartado = 6 )'.$id_almacenid;
-
+          /*
         if ( $perfil == 4 )  { 
             $where .=' AND (m.id_usuario_apartado = "'.$id_session.'")';
             $where_total .=' AND (m.id_usuario_apartado = "'.$id_session.'")';
 
-         }
+         }*/
+
+         
+         //sino es admin, ni almacenista
+         if  (($this->session->userdata('id_perfil')!=1) &&  ($this->session->userdata('id_perfil')!=2)) {
+                $where_op ="  ";
+                if ((in_array(2, $data['coleccion_id_operaciones']))) {
+                    $where_op.= (($where_op!="") ? " and (" : "") . "  (m.id_operacion_pedido = 4)  ";
+                } else {
+                  $where_op.= (($where_op!="") ? " and (" : "") . "  ((m.id_operacion_pedido = 4) AND (m.id_usuario_apartado = '".$id_session."'))  ";
+                }
+
+                if ((in_array(94, $data['coleccion_id_operaciones']))) {
+                    $where_op.= (($where_op!="") ? " OR " : "") . "  (m.id_operacion_pedido = 97)  ";
+                } else {
+                  $where_op.= (($where_op!="") ? " OR " : "") . "  ((m.id_operacion_pedido = 97) AND (m.id_usuario_apartado = '".$id_session."'))  ";
+                }
+
+                if ((in_array(95, $data['coleccion_id_operaciones']))) {
+
+                    $where_op.= (($where_op!="") ? " OR " : "") . "  (m.id_operacion_pedido = 98) ) ";
+                } else {
+                  $where_op.= (($where_op!="") ? " OR " : "") . "  ((m.id_operacion_pedido = 98) AND (m.id_usuario_apartado = '".$id_session."')) ) ";
+                }
+
+                $where .= $where_op;
+                $where_total .= $where_op;
+
+        }
+
 
 
          if (($data['id_tipo_pedido']!="0") AND ($data['id_tipo_pedido']!="") AND ($data['id_tipo_pedido']!= null)) {
@@ -2704,6 +2733,11 @@
                                       19=>$row->id_estatus,  
                                       20=>( ( ($this->session->userdata('id_perfil')==1) || ( (in_array(80, $data['coleccion_id_operaciones'])) || (in_array(81, $data['coleccion_id_operaciones'])) )  ) ? number_format($row->precio, 2, '.', ',') : '-'),
                                       21=>$row->id_operacion_pedido,  
+                                      22 => (boolean) ( (($this->session->userdata('id_perfil')==1) OR  ($this->session->userdata('id_perfil')==2))  OR ( 
+                                              ( ($row->id_operacion_pedido==4) &&  (in_array(2, $data['coleccion_id_operaciones'])))
+                                              || ( ($row->id_operacion_pedido==97) &&  (in_array(94, $data['coleccion_id_operaciones'])))
+                                              || ( ($row->id_operacion_pedido==98) &&  (in_array(95, $data['coleccion_id_operaciones'])))
+                                            ) )
                                                                        
                                     );
                             

@@ -141,29 +141,35 @@
 				<div class="collapse navbar-collapse" id="main-navbar">
 					<ul class="nav navbar-nav navbar-left" id="menu_opciones">
 
-					 <?php if ( ( $perfil == 1 ) || (in_array(1, $coleccion_id_operaciones)) ) { ?>
+					 <?php if ( ( $perfil == 1 ) || (in_array(1, $coleccion_id_operaciones)) || (in_array(70, $coleccion_id_operaciones)) || (in_array(71, $coleccion_id_operaciones)) || (in_array(72, $coleccion_id_operaciones)) ) { ?>
 					<li id="bar_entradas" class="dropdown dropdown-user">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                             <span class="username username-hide-on-mobile color-blanco"> <i class="fa fa-angle-down"></i> Entrada </span>
                             
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
-                            <li >
-								<a title="Generar Entradas al Almacén." href="<?php echo base_url(); ?>entradas" class="ttip">Entrada</a> 
-							</li> 
 
-							<li >
-								<a title="Generar Entradas al Almacén." href="<?php echo base_url(); ?>entrada_compra" class="ttip ">Entrada por Compra</a> 
-							</li> 
-
-							<li >
-								<a title="Generar Entradas al Almacén." href="<?php echo base_url(); ?>transferencia_recibida" class="ttip ">Transferencia Recibida</a> 
-							</li>
-
-							<li >
-								<a title="Generar Entradas al Almacén." href="<?php echo base_url(); ?>transferencia_bodega" class="ttip ">Transferencia Bodega</a> 
-							</li>
-
+				           <?php if ( ( $perfil == 1 ) || (in_array(1, $coleccion_id_operaciones)) ) { ?>
+	                            <li >
+									<a title="Generar Entradas al Almacén." href="<?php echo base_url(); ?>entradas" class="ttip">Entrada</a> 
+								</li> 
+							<?php } ?>		
+							<?php if ( ( $perfil == 1 ) || (in_array(71, $coleccion_id_operaciones)) ) { ?>
+								<li >
+									<a title="Generar Entradas al Almacén." href="<?php echo base_url(); ?>entrada_compra" class="ttip ">Entrada por Compra</a> 
+								</li> 
+							<?php } ?>		
+							<?php if ( ( $perfil == 1 ) || (in_array(70, $coleccion_id_operaciones)) ) { ?>
+								<li >
+									<a title="Generar Entradas al Almacén." href="<?php echo base_url(); ?>transferencia_recibida" class="ttip ">Transferencia Recibida</a> 
+								</li>
+							<?php } ?>		
+							<?php if ( ( $perfil == 1 ) || (in_array(72, $coleccion_id_operaciones)) ) { ?>
+								<li >
+									<a title="Generar Entradas al Almacén." href="<?php echo base_url(); ?>transferencia_bodega" class="ttip ">Transferencia Bodega</a> 
+								</li>
+							<?php } ?>		
+							
                         </ul>
                     </li>
 
@@ -186,9 +192,10 @@
 						</li>
 					<?php } ?>		
 
-					 <?php if ( ( $perfil == 1 ) || (in_array(4, $coleccion_id_operaciones)) ) { ?>
+					
+					 <?php if ( ( $perfil == 1 ) || (in_array(4, $coleccion_id_operaciones)) || (in_array(97, $coleccion_id_operaciones)) || (in_array(98, $coleccion_id_operaciones)) || (in_array(2, $coleccion_id_operaciones)) ) { ?>
 						
-					 <?php  if ($this->session->userdata('config_newsalida')==1) { ?>
+					 	<?php  if ($this->session->userdata('config_newsalida')==1) { ?>
 
 								<li id="bar_generar_pedidos" class="dropdown dropdown-user">
 		                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
@@ -196,23 +203,27 @@
 		                            
 		                        </a>
 		                       		 <ul class="dropdown-menu dropdown-menu-default">
+										 <?php if ( ( $perfil == 1 ) || (in_array(4, $coleccion_id_operaciones)) || (in_array(97, $coleccion_id_operaciones)) || (in_array(98, $coleccion_id_operaciones))  ) { ?>
 										<li>
 											<a title="Pedidos desde una tienda o punto de venta." href="<?php echo base_url(); ?>generar_pedidos" class="ttip ">Pedido</a> 
 										</li>
+										<?php } ?>	
 
+										<?php if ( ( $perfil == 1 ) || (in_array(2, $coleccion_id_operaciones))  ) { ?>
 										<li>
 											<a title="Pedidos desde una tienda o punto de venta." href="<?php echo base_url(); ?>salidas" class="ttip ">Salida</a> 
 										</li>
-
+										<?php } ?>	
 
 			                        </ul>
 			                    </li>
 	                     <?php } else { ?>	
-
-		        				<li id="bar_generar_pedidos">
-									<a title="Pedidos desde una tienda o punto de venta." href="<?php echo base_url(); ?>generar_pedidos" class="ttip color-blanco">Pedido</a> 
-								</li>
-
+	                     		 <?php if ( ( $perfil == 1 ) || (in_array(4, $coleccion_id_operaciones)) || (in_array(97, $coleccion_id_operaciones)) || (in_array(98, $coleccion_id_operaciones))  ) { ?>
+	                     		 
+				        				<li id="bar_generar_pedidos">
+											<a title="Pedidos desde una tienda o punto de venta." href="<?php echo base_url(); ?>generar_pedidos" class="ttip color-blanco">Pedido</a> 
+										</li>
+								<?php } ?>			
 						<?php } ?>	
 					<?php } ?>	
 

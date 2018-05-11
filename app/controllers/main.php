@@ -208,10 +208,10 @@ class Main extends CI_Controller {
     if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }   
 
 
 
@@ -228,7 +228,7 @@ class Main extends CI_Controller {
             case 2:
             case 3:
             case 4:
-                 if  (in_array(5, $coleccion_id_operaciones))  { 
+                 if  (in_array(5, $data['coleccion_id_operaciones']))  { 
                      ob_start();
                           $this->paginacion_ajax_usuario(0);
                           $initial_content = ob_get_contents();
@@ -310,10 +310,10 @@ class Main extends CI_Controller {
     if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }   
 
             	  $data['clientes']   = $this->modelo->coger_catalogo_clientes(2);
             	  $data['almacenes']   = $this->modelo->coger_catalogo_almacenes(2);
@@ -328,7 +328,7 @@ class Main extends CI_Controller {
             case 2:
             case 3:
             case 4:
-                 if  (in_array(5, $coleccion_id_operaciones))  { 
+                 if  (in_array(5, $data['coleccion_id_operaciones']))  { 
                     $this->load->view( 'usuarios/nuevo_usuario', $data );   
                  }   
               break;
@@ -440,18 +440,17 @@ class Main extends CI_Controller {
 				$data['retorno']='';
 		  }
 
-	      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-	      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-	            $coleccion_id_operaciones = array();
-	      }   
-
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 
 		  $id_perfil=$this->session->userdata('id_perfil');
 			
 	    //Administrador con permiso a todo ($id_perfil==1)
 	    //usuario solo viendo su PERFIL  OR (($id_perfil!=1) and ($id==$uid) )
-	    //Con permisos de usuarios OR (in_array(5, $coleccion_id_operaciones)) 
-			if	( ($id_perfil==1) OR (($id_perfil!=1) and ($id==$uid) ) OR (in_array(5, $coleccion_id_operaciones)) ) {
+	    //Con permisos de usuarios OR (in_array(5, $data['coleccion_id_operaciones'])) 
+			if	( ($id_perfil==1) OR (($id_perfil!=1) and ($id==$uid) ) OR (in_array(5, $data['coleccion_id_operaciones'])) ) {
 				$data['perfiles']		= $this->modelo->coger_catalogo_perfiles();
 				$data['clientes']   = $this->modelo->coger_catalogo_clientes(2);
 				$data['almacenes']   = $this->modelo->coger_catalogo_almacenes(2);
@@ -545,10 +544,10 @@ class Main extends CI_Controller {
     if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }   
 
           switch ($id_perfil) {    
             case 1:
@@ -562,7 +561,7 @@ class Main extends CI_Controller {
             case 2:
             case 3:
             case 4:
-                 if  (in_array(5, $coleccion_id_operaciones))  { 
+                 if  (in_array(5, $data['coleccion_id_operaciones']))  { 
                       if ($uid=='') {
                           $uid= $this->session->userdata('id');
                       }   
@@ -746,10 +745,10 @@ class Main extends CI_Controller {
     if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
           $data['nombrecompleto']   = base64_decode($nombrecompleto);
           $data['id']         = $id;

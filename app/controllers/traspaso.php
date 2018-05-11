@@ -626,10 +626,10 @@ public function modulo_traspaso(){
     if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }   
            
            //no. movimiento $data
         $data['num_movimiento'] = base64_decode($num_movimiento);
@@ -652,7 +652,7 @@ public function modulo_traspaso(){
             case 2:
             case 3:
             case 4:
-                  if  (in_array(26, $coleccion_id_operaciones))  {            
+                  if  (in_array(26, $data['coleccion_id_operaciones']))  {            
                       $this->load->view( 'traspaso/traspaso_general_detalle',$data);
                   } else {
                     redirect('');

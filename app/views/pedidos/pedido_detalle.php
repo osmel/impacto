@@ -84,7 +84,15 @@
 								
 							</div>									
 						<?php } else { ?>
-							<?php if ( ( $perfil == 2 ) OR ( $perfil == 1 )) { ?>
+							<?php if ( ( $perfil == 2 ) OR ( $perfil == 1 ) 
+									OR ( 
+										( ($id_operacion_pedido==4) &&  (in_array(2, $coleccion_id_operaciones)))
+										|| ( ($id_operacion_pedido==97) &&  (in_array(94, $coleccion_id_operaciones)))
+										|| ( ($id_operacion_pedido==98) &&  (in_array(95, $coleccion_id_operaciones)))
+									)	
+									)
+							 
+							 { ?>
 							<div class="col-xs-12 col-sm-4 col-md-3">
 								
 									<div class="form-group">
@@ -197,7 +205,15 @@
 								<?php } else { ?>			
 
 
-									<?php if ( ( $perfil != 4 ) ) { ?>
+									<?php if ( ( $perfil == 2 ) OR ( $perfil == 1 ) 
+									OR ( 
+										( ($id_operacion_pedido==4) &&  (in_array(2, $coleccion_id_operaciones)))
+										|| ( ($id_operacion_pedido==97) &&  (in_array(94, $coleccion_id_operaciones)))
+										|| ( ($id_operacion_pedido==98) &&  (in_array(95, $coleccion_id_operaciones)))
+									)	
+									)
+							 
+							 		{ ?>
 										<div class="col-sm-3 col-md-3 marginbuttom">
 											<button type="button"  class="btn btn-success btn-block ttip" title="Procesar la salida." id="proc_salida_pedido">
 												<span>Procesar Salida</span>

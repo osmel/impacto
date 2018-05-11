@@ -24,10 +24,10 @@ class Ctasxpagar extends CI_Controller {
      if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 
               $data['almacenes']   = $this->modelo->coger_catalogo_almacenes(2);
               $data['facturas']   	= $this->catalogo->catalogo_tipos_facturas();
@@ -46,8 +46,8 @@ class Ctasxpagar extends CI_Controller {
             case 2:
             case 3:
             case 4:
-              //|| (in_array(28, $coleccion_id_operaciones))  
-                  if ( ( (in_array(29, $coleccion_id_operaciones)) || (in_array(30, $coleccion_id_operaciones)) ) ) {                 
+              //|| (in_array(28, $data['coleccion_id_operaciones']))  
+                  if ( ( (in_array(29, $data['coleccion_id_operaciones'])) || (in_array(30, $data['coleccion_id_operaciones'])) ) ) {                 
                             $this->load->view( 'ctasxpagar/ctasxpagar',$data );
                  }   
               break;
@@ -157,11 +157,11 @@ class Ctasxpagar extends CI_Controller {
           $data['retorno'] = base64_decode($retorno);
           $data['id_factura'] = base64_decode($id_factura);
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-          }   
-
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
+           
           $dato['id'] = 6;
           $data['configuracion'] = $this->catalogo->coger_configuracion($dato); 
           $dato['id'] = 7;
@@ -176,8 +176,8 @@ class Ctasxpagar extends CI_Controller {
             case 2:
             case 3:
             case 4:
-              //|| (in_array(28, $coleccion_id_operaciones)) 
-                  if ( ( (in_array(29, $coleccion_id_operaciones)) || (in_array(30, $coleccion_id_operaciones)) )  ) {
+              //|| (in_array(28, $data['coleccion_id_operaciones'])) 
+                  if ( ( (in_array(29, $data['coleccion_id_operaciones'])) || (in_array(30, $data['coleccion_id_operaciones'])) )  ) {
 
                             $this->load->view( 'ctasxpagar/detalle_ctasxpagar',$data );
                  }   
@@ -221,10 +221,10 @@ function nuevo_pago($movimiento,$id_factura){
       $data['id_factura']= base64_decode($id_factura);
       $data['pago'] =  $this->modelo_ctasxpagar->nuevo_pago_realizado($data);
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
        $data['doc_pagos'] =  $this->catalogo->listado_documentos_pagos();
        $data['retorno']='procesar_ctasxpagar/'.base64_encode($data["tipo_entrada"].'-'.$data["movimiento"]).'/'.base64_encode("listado_ctasxpagar").'/'.base64_encode($data['id_factura']); 
@@ -237,7 +237,7 @@ function nuevo_pago($movimiento,$id_factura){
         case 3:
         case 4:
              
-             if ( ( (in_array(29, $coleccion_id_operaciones)) || (in_array(30, $coleccion_id_operaciones)) ) && (in_array(28, $coleccion_id_operaciones))  ) { 
+             if ( ( (in_array(29, $data['coleccion_id_operaciones'])) || (in_array(30, $data['coleccion_id_operaciones'])) ) && (in_array(28, $data['coleccion_id_operaciones']))  ) { 
                 $this->load->view( 'ctasxpagar/nuevo_pago',$data);
               }   
           break;
@@ -303,10 +303,10 @@ function nuevo_pago($movimiento,$id_factura){
     if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['id']  =  base64_decode($id);
       $data['id_factura'] =  base64_decode($id_factura);
@@ -324,7 +324,7 @@ function nuevo_pago($movimiento,$id_factura){
         case 2:
         case 3:
         case 4:
-             if ( ( (in_array(29, $coleccion_id_operaciones)) || (in_array(30, $coleccion_id_operaciones)) ) && (in_array(31, $coleccion_id_operaciones))  ) { 
+             if ( ( (in_array(29, $data['coleccion_id_operaciones'])) || (in_array(30, $data['coleccion_id_operaciones'])) ) && (in_array(31, $data['coleccion_id_operaciones']))  ) { 
                 $this->load->view( 'ctasxpagar/editar_pago', $data ); 
               }   
           break;
@@ -395,10 +395,10 @@ function nuevo_pago($movimiento,$id_factura){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
             $data['instrumento_pago']   = base64_decode($instrumento_pago);
             $data['id']   = base64_decode($id);
@@ -414,7 +414,7 @@ function nuevo_pago($movimiento,$id_factura){
         case 2:
         case 3:
         case 4:
-            if ( ( (in_array(29, $coleccion_id_operaciones)) || (in_array(30, $coleccion_id_operaciones)) ) && (in_array(32, $coleccion_id_operaciones))  ) { 
+            if ( ( (in_array(29, $data['coleccion_id_operaciones'])) || (in_array(30, $data['coleccion_id_operaciones'])) ) && (in_array(32, $data['coleccion_id_operaciones']))  ) { 
                 $this->load->view( 'ctasxpagar/eliminar_pago', $data );
              }   
           break;

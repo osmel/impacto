@@ -2108,7 +2108,8 @@ if ( jQuery('#config_salida_activo').val() == 1 ) { //si tiene factura salida
 	    	
 	    	
 	    	if ( ( jQuery('#el_perfil').val() == 3 ) || ( jQuery('#el_perfil').val() == 4 ) ) {
-	    		var arr_pedido_detalle = ['Código', 'Producto', 'Color', 'Cantidad',   'No. Movimiento','Ancho', 'Lote','No. de Partida','Almacén','Precio'];
+	    		//var arr_pedido_detalle = ['Código', 'Producto', 'Color', 'Cantidad',   'No. Movimiento','Ancho', 'Lote','No. de Partida','Almacén','Precio'];
+	    		var arr_pedido_detalle = ['Código', 'Producto', 'Color', 'Cantidad',   'No. Movimiento','Ancho', 'Lote','No. de Partida','Almacén','Peso','Precio'];
 	    		var arr_apartado_detalle = ['Código', 'Producto', 'Color', 'Cantidad',   'No. Movimiento','Ancho', 'Lote','No. de Partida','Almacén','Precio'];
 	    	} else {
 	    		var arr_pedido_detalle = ['Código', 'Producto', 'Color', 'Cantidad',   'No. Movimiento','Ancho', 'Lote','No. de Partida','Almacén','Peso','Precio'];
@@ -7393,7 +7394,7 @@ jQuery('#pedido_detalle').dataTable( {
 	            },
     			{ 
 	                 "visible": false,
-	                "targets": [13,14,15,16,17,18,19,20,21], 
+	                "targets": [13,14,15,16,17,18,19,20,21,22], 
 	            }	            
 
 	],	
@@ -7416,22 +7417,13 @@ jQuery('#pedido_detalle').dataTable( {
 
 		var api = this.api();
 
+		
 		if ( jQuery('#config_salida').val() == 0 ) {
-
 			api.column(6).visible(false);	
 			api.column(7).visible(false);	
-			if ( ( jQuery('#el_perfil').val() == 3 ) || ( jQuery('#el_perfil').val() == 4 ) ) {
-				api.column(11).visible(false);	
-			}
 		} else {
-			
 			api.column(6).visible(true);	
 			api.column(7).visible(true);	
-			if ( ( jQuery('#el_perfil').val() == 3 ) || ( jQuery('#el_perfil').val() == 4 ) ) {
-				api.column(11).visible(true);	
-			}
-
-			//api.column(11).visible(true);	
 		}
 
 		var arreglo =arr_pedido_detalle;
@@ -7450,6 +7442,14 @@ jQuery('#pedido_detalle').dataTable( {
                 } else {
 	            		api.column(12).visible(false);	
                 }
+
+             api.column(11).visible(true);			
+			if (!(aData[0][22])) {
+				api.column(11).visible(false);	
+				//console.log( (aData[0][22])  );
+			} else {
+				api.column(11).visible(true);		
+			}
 
 
 
@@ -8429,6 +8429,7 @@ jQuery('body').on('click','.on-off', function (e) {
 	 jQuery(this).siblings().addClass('btn-outline');
 	 jQuery(this).removeClass('btn-outline');
 	 jQuery(this).addClass('activo');
+	 //alert('aa');
 
 
 	if (jQuery(this).attr('data') == "editar_bodega") {  //Bodega

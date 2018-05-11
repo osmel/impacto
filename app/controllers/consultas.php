@@ -85,10 +85,10 @@ class Consultas extends CI_Controller {
 		 if($this->session->userdata('session') === TRUE ){
 		      $id_perfil=$this->session->userdata('id_perfil');
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }   
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 
 			
 		       $data['productos'] = $this->model_consulta->listado_productos_unico();
@@ -162,10 +162,10 @@ class Consultas extends CI_Controller {
 		 if($this->session->userdata('session') === TRUE ){
 		      $id_perfil=$this->session->userdata('id_perfil');
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }   
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 
 			
 			 $data['val_proveedor']  = '';
@@ -203,11 +203,11 @@ class Consultas extends CI_Controller {
 		 if($this->session->userdata('session') === TRUE ){
 		      $id_perfil=$this->session->userdata('id_perfil');
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }   
-
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
+           
 			
 				$data['val_proveedor']  = $this->model_entrada->valores_movimientos_temporal();				
 

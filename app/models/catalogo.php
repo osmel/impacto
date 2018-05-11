@@ -4000,6 +4000,34 @@ public function consecutivo_general_salida($data){
            return $tipos_pedidos->num_rows();
         }
 
+    
+
+
+      public function listado_tip_pedidos($data){
+          
+          
+
+          if  ( (($this->session->userdata('id_perfil')!=1) &&  ($this->session->userdata('id_perfil')!=2))  and (!(in_array(98, $data['coleccion_id_operaciones']))) ) {
+            $where = '( c.id <> 3 ) ';
+            $this->db->where($where);
+          }
+
+
+          $this->db->select('c.id, c.tipo_pedido');
+          $this->db->from($this->tipos_pedidos.' as c');
+         
+          
+          $result = $this->db->get();
+
+            if ( $result->num_rows() > 0 )
+               return $result->result();
+            else
+               return False;
+            $result->free_result();
+        }      
+
+
+
       public function listado_tipos_pedidos($limit=-1, $offset=-1){
           
 

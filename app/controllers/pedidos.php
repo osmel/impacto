@@ -26,11 +26,10 @@ public function listado_pedidos(){
 		 if($this->session->userdata('session') === TRUE ){
 		      $id_perfil=$this->session->userdata('id_perfil');
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }   
-		       
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }		       
 		       //no. movimiento
 		       $data['consecutivo']  = $this->catalogo->listado_consecutivo(4);  //consecutivo viejo
 
@@ -42,7 +41,7 @@ public function listado_pedidos(){
 		       $data['productos']   = $this->modelo_pedido->listado_productos_unico();
 		       $data['almacenes']   = $this->modelo->coger_catalogo_almacenes(2);
 		       $data['facturas']   	= $this->catalogo->catalogo_tipos_facturas();
-		       $data['pedidos']     = $this->catalogo->listado_tipos_pedidos(-1,-1,'1');
+		       $data['pedidos']     = $this->catalogo->listado_tip_pedidos($data);
 		       
 		      switch ($id_perfil) {    
 		        case 1:          
@@ -50,10 +49,12 @@ public function listado_pedidos(){
 		          break;
 		        case 2:
 		        case 3:
-		        case 4:
-		              if  (in_array(4, $coleccion_id_operaciones))  {                 
+		        case 4:  //4-CLiente, 97->tienda, 98->bodega
+		              if  ((in_array(4, $data['coleccion_id_operaciones'])) || (in_array(97, $data['coleccion_id_operaciones'])) || (in_array(98, $data['coleccion_id_operaciones'])) )   {                 
 		                        $this->load->view( 'salidas_pedidos/salida_pedido',$data );
-		             }   
+		             }  else {
+		          			redirect('');   	
+		             } 
 		          break;
 
 
@@ -310,11 +311,11 @@ public function listado_pedidos(){
 		if($this->session->userdata('session') === TRUE ){
 		      $id_perfil=$this->session->userdata('id_perfil');
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }   
-		       $data['almacenes']   = $this->modelo->coger_catalogo_almacenes(2);
+		       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+		       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+		                $data['coleccion_id_operaciones'] = array();
+		       }		       $data['almacenes']   = $this->modelo->coger_catalogo_almacenes(2);
+
 		       $data['facturas']   	= $this->catalogo->catalogo_tipos_facturas();
 		       $data['pedidos']   = $this->catalogo->listado_tipos_pedidos(-1,-1,'1');
 		       
@@ -327,7 +328,7 @@ public function listado_pedidos(){
 		        case 2:
 		        case 3:
 		        case 4:
-		              if  (in_array(10, $coleccion_id_operaciones))  {            
+		              if  (in_array(10, $data['coleccion_id_operaciones']))  {            
 		              			$this->load->view( 'pedidos/pedidos' ,$data );     
 		              } else {
 		              	redirect('');
@@ -381,20 +382,17 @@ public function listado_pedidos(){
 
 
 
-	 //listado 1ra Regilla PARA "Pedidos de vendedores"
-//	public function apartado_detalle($id_usuario,$id_cliente,$id_almacen,$consecutivo_venta,$id_operacion_pedido){
-
+	 //listado detalle 1ra Regilla PARA "Pedidos de vendedores"
 	public function apartado_detalle($num_mov,$id_almacen,$id_operacion_pedido){
 
 
 		if($this->session->userdata('session') === TRUE ){
 		      $id_perfil=$this->session->userdata('id_perfil');
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }   
-		       
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }		       
 		       //no. movimiento $data
 		       	//$data['id_usuario'] = base64_decode($id_usuario);
 				$data['num_mov'] = base64_decode($num_mov);
@@ -420,7 +418,7 @@ public function listado_pedidos(){
 		        case 2:
 		        case 3:
 		        case 4:
-		              if  (in_array(10, $coleccion_id_operaciones))  {            
+		              if  (in_array(10, $data['coleccion_id_operaciones']))  {            
 		              			$this->load->view( 'pedidos/apartado_detalle',$data);
 		              } else {
 		              	redirect('');
@@ -447,11 +445,10 @@ public function listado_pedidos(){
 		if($this->session->userdata('session') === TRUE ){
 		      $id_perfil=$this->session->userdata('id_perfil');
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }   
-		       
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }		       
 		       //no. movimiento $data
 				$data['num_mov'] = base64_decode($num_mov);
 				$data['id_almacen'] = base64_decode($id_almacen);
@@ -472,8 +469,8 @@ public function listado_pedidos(){
 		          break;
 		        case 2:
 		        case 3:
-		        case 4:
-		              if  (in_array(10, $coleccion_id_operaciones))  {            
+		        case 4:  //todos tienen derecho a verlo, si tienen marcado el 10(mostrar el pedido)
+		              if  (in_array(10, $data['coleccion_id_operaciones']))  {            
 		              	  $this->load->view( 'pedidos/pedido_detalle',$data);
 		              } else {
 		              	redirect('');
@@ -489,19 +486,17 @@ public function listado_pedidos(){
 		}  		
 	}
 
-    //listado "Regilla" de la 3ra PARA "Histórico de Pedidos"
-	//public function pedido_completado_detalle($mov_salida,$id_apartado,$id_almacen,$consecutivo_venta,$id_tipo_pedido,$id_tipo_factura){
+    //listado detalle "Regilla" de la 3ra PARA "Histórico de Pedidos"
 	public function pedido_completado_detalle($mov_salida_unico,$id_almacen,$id_operacion_salida){
 
 
 		if($this->session->userdata('session') === TRUE ){
 		      $id_perfil=$this->session->userdata('id_perfil');
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }   
-		       
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }		       
 		       //no. movimiento $data
 				$data['mov_salida_unico'] = base64_decode($mov_salida_unico);
 				$data['id_almacen'] = base64_decode($id_almacen);
@@ -524,7 +519,7 @@ public function listado_pedidos(){
 		        case 2:
 		        case 3:
 		        case 4:
-		              if  (in_array(10, $coleccion_id_operaciones))  {            
+		              if  (in_array(10, $data['coleccion_id_operaciones']))  {            
 		              	  $this->load->view( 'pedidos/pedido_completo_detalle',$data);
 		              } else {
 		              	redirect('');
@@ -596,10 +591,10 @@ public function listado_pedidos(){
 		   $data['id_almacen'] = base64_decode($id_almacen);
 		   $data['id_operacion_pedido'] = base64_decode($id_operacion_pedido);
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }   
 
 				
           switch ($id_perfil) {    
@@ -609,12 +604,12 @@ public function listado_pedidos(){
             case 2:
             case 3:
             case 4:
-                 if  (in_array(10, $coleccion_id_operaciones))  { 
+                 if  (in_array(10, $data['coleccion_id_operaciones']))  { 
 	                      $this->load->view( 'pedidos/eliminar_apartado', $data );
-                 }   
+                 } else {
+		              	redirect('');
+		         }   
               break;
-
-
             default:  
               redirect('');
               break;
@@ -647,7 +642,6 @@ public function listado_pedidos(){
 
 
 	//Eliminar "Regilla" de la 2da PARA  "Pedidos de tiendas" 
-	//public function eliminar_pedido_detalle($num_mov,$id_almacen,$id_tipo_pedido,$id_tipo_factura){
 	public function eliminar_pedido_detalle($num_mov,$id_almacen,$id_operacion_pedido){	
 
 
@@ -661,10 +655,10 @@ public function listado_pedidos(){
 		   
 
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }   
 
           switch ($id_perfil) {    
             case 1:
@@ -673,9 +667,12 @@ public function listado_pedidos(){
             case 2:
             case 3:
             case 4:
-                 if  (in_array(10, $coleccion_id_operaciones))  { 
+                 if  (in_array(10, $data['coleccion_id_operaciones']))  { 
 	                      $this->load->view( 'pedidos/eliminar_pedido', $data );
-                 }   
+                 } else {
+		              	redirect('');
+		         }   
+ 
               break;
 
 

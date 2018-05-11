@@ -61,10 +61,10 @@ public function modulo_pedido_compra($data){
      if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }   
            
 
            //no. movimiento
@@ -99,7 +99,7 @@ public function modulo_pedido_compra($data){
             case 2:
             case 3:
             case 4:
-                  if  (in_array(39, $coleccion_id_operaciones))  {                 
+                  if  (in_array(39, $data['coleccion_id_operaciones']))  {                 
                            $this->load->view( 'pedido_compra/pedido_compra',$data );
                  }   
               break;
@@ -124,10 +124,10 @@ public function nuevo_pedido_compra($url){
      if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }   
            
 
            //no. movimiento
@@ -157,7 +157,7 @@ public function nuevo_pedido_compra($url){
             case 2:
             case 3:
             case 4:
-                  if  (in_array(39, $coleccion_id_operaciones))  {                 
+                  if  (in_array(39, $data['coleccion_id_operaciones']))  {                 
                            $this->load->view( 'pedido_compra/nuevo_pedido',$data );
                  }   
               break;
@@ -289,10 +289,10 @@ function quitar_salida_compra(){
        if($this->session->userdata('session') === TRUE ){
             $id_perfil=$this->session->userdata('id_perfil');
 
-            $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-            if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                  $coleccion_id_operaciones = array();
-             }  
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
             
             $existe  = $this->model_pedido_compra->valores_movimientos_temporal();
@@ -626,10 +626,10 @@ public function proc_pedido_aprobado(){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       
            $data['modulo']  = base64_decode($modulo); 
@@ -670,7 +670,7 @@ public function proc_pedido_aprobado(){
             case 2:
             case 3:
             case 4:
-                  if  (in_array(39, $coleccion_id_operaciones))  {                 
+                  if  (in_array(39, $data['coleccion_id_operaciones']))  {                 
                          $this->load->view( 'pedido_compra/eliminar_pedido_compra',$data );
                  }   
             break;     

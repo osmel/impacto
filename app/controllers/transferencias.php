@@ -20,11 +20,10 @@ class Transferencias extends CI_Controller {
 		 if($this->session->userdata('session') === TRUE ){
 		      $id_perfil=$this->session->userdata('id_perfil');
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }   
-
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }
 
 
 		       	$data['consecutivo']  	= $this->catalogo->listado_consecutivo(70);
@@ -63,7 +62,7 @@ class Transferencias extends CI_Controller {
 		        case 2:
 		        case 3:
 		        case 4:
-		              if  (in_array(1, $coleccion_id_operaciones))  {                 
+		              if  (in_array($data['id_operacion'], $data['coleccion_id_operaciones']))  {                 
 		                         $this->load->view( 'transferencias/recibida',$data );
 		             }   
 		          break;
@@ -201,10 +200,10 @@ class Transferencias extends CI_Controller {
 			 $data['id_estatus']   = 0; 
 			 $data['id_operacion']= 70;
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }  			
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }		
 
 		       $data['etiq_mov'] ="de Entrada";
 
@@ -223,7 +222,7 @@ class Transferencias extends CI_Controller {
 			        case 2:
 			        case 3:
 			        case 4:
-			              if  (in_array(1, $coleccion_id_operaciones))  {                 
+			              if  (in_array($data['id_operacion'], $data['coleccion_id_operaciones']))  {                 
 						    $data['movimientos']  = $this->model_entrada->listado_movimientos_registros($data);
 			                $this->load->view( 'pdfs/pdfs_view',$data );
 			             }   

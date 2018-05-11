@@ -204,16 +204,13 @@
 			</div>
 		<?php } ?>		
 			
-		<?php if ( ( $perfil != 3 ) ) { ?>		 
+		<?php if ( ( $perfil != 3 ) ) { 
+			//if ( ( $perfil == 1 ) || (in_array(98, $coleccion_id_operaciones)) ) { 
+			?>		 
 			<div class="table-responsive">
 				
-				
 
-				<?php if ( ( $perfil == 4 ) ) { ?>		 
-					<h4>Mis Pedidos</h4>	
-				<?php } else { ?>		
-					<h4>Pedidos de tiendas</h4>	
-				<?php } ?>		
+				<?php echo ( ( $perfil == 1 ) || (in_array(4, $coleccion_id_operaciones)) || (in_array(97, $coleccion_id_operaciones)) || (in_array(98, $coleccion_id_operaciones)) ) ? '<h4>Pedidos de tiendas</h4>': '<h4>Mis Pedidos</h4>';?>
 
 
 				<br>			

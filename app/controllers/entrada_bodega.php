@@ -62,9 +62,11 @@ class Entrada_bodega extends CI_Controller {
 		        case 2:
 		        case 3:
 		        case 4:
-		              if  (in_array(1, $data['coleccion_id_operaciones']))  {                 
+		              if  (in_array($data['id_operacion'], $data['coleccion_id_operaciones']))  {                 
 		                         $this->load->view( 'entrada_bodega/entrada_bodega',$data );
-		             }   
+		             }   else {
+		          			redirect('');   	
+		             }
 		          break;
 
 
@@ -187,7 +189,7 @@ class Entrada_bodega extends CI_Controller {
 			        case 2:
 			        case 3:
 			        case 4:
-			              if  (in_array(1, $data['coleccion_id_operaciones']))  {                 
+			              if  (in_array($data['id_operacion'], $data['coleccion_id_operaciones']))  {                 
 						    $data['movimientos']  = $this->model_entrada->listado_movimientos_registros($data);
 			                $this->load->view( 'pdfs/pdfs_view',$data );
 			             }   

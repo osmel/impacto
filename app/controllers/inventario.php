@@ -70,10 +70,10 @@ class Inventario extends CI_Controller {
      if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }   
               $data['medidas']  = $this->catalogo->listado_medidas();
               //$data['estatuss']  = $this->catalogo->listado_estatus(-1,-1,'1');
               $data['estatuss']  = $this->catalogo->listado_estatus_excluir(-1,-1,9);
@@ -97,7 +97,7 @@ class Inventario extends CI_Controller {
             case 2:
             case 3:
             case 4:
-                  if  (in_array(3, $coleccion_id_operaciones))  {                 
+                  if  (in_array(3, $data['coleccion_id_operaciones']))  {                 
                             $this->load->view( 'editar_inventario/editar',$data );
                  }   
               break;

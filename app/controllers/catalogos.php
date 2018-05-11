@@ -118,10 +118,10 @@ class Catalogos extends CI_Controller {
     } else {
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
       switch ($id_perfil) {    
         case 1:
               $this->load->view( 'catalogos/catalogos' );
@@ -129,13 +129,13 @@ class Catalogos extends CI_Controller {
         case 2:
         case 3:
         case 4:
-             if   ((in_array(8, $coleccion_id_operaciones)) 
-                  || (in_array(11, $coleccion_id_operaciones)) || (in_array(12, $coleccion_id_operaciones)) 
-                  || (in_array(13, $coleccion_id_operaciones)) || (in_array(14, $coleccion_id_operaciones)) 
-                  || (in_array(15, $coleccion_id_operaciones)) || (in_array(16, $coleccion_id_operaciones)) 
-                  || (in_array(17, $coleccion_id_operaciones)) || (in_array(18, $coleccion_id_operaciones)) 
-                  || (in_array(19, $coleccion_id_operaciones)) || (in_array(20, $coleccion_id_operaciones)) 
-                  || (in_array(21, $coleccion_id_operaciones)) || (in_array(22, $coleccion_id_operaciones)) 
+             if   ((in_array(8, $data['coleccion_id_operaciones'])) 
+                  || (in_array(11, $data['coleccion_id_operaciones'])) || (in_array(12, $data['coleccion_id_operaciones'])) 
+                  || (in_array(13, $data['coleccion_id_operaciones'])) || (in_array(14, $data['coleccion_id_operaciones'])) 
+                  || (in_array(15, $data['coleccion_id_operaciones'])) || (in_array(16, $data['coleccion_id_operaciones'])) 
+                  || (in_array(17, $data['coleccion_id_operaciones'])) || (in_array(18, $data['coleccion_id_operaciones'])) 
+                  || (in_array(19, $data['coleccion_id_operaciones'])) || (in_array(20, $data['coleccion_id_operaciones'])) 
+                  || (in_array(21, $data['coleccion_id_operaciones'])) || (in_array(22, $data['coleccion_id_operaciones'])) 
               )
 
 
@@ -344,10 +344,10 @@ class Catalogos extends CI_Controller {
     } else {
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
       switch ($id_perfil) {    
         case 1:
 
@@ -361,7 +361,7 @@ class Catalogos extends CI_Controller {
         case 2:
         case 3:
         case 4:
-             if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(20, $coleccion_id_operaciones))  ) 
+             if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(20, $data['coleccion_id_operaciones']))  ) 
 
                { 
               ob_start();
@@ -435,10 +435,10 @@ class Catalogos extends CI_Controller {
     if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       switch ($id_perfil) {    
         case 1:
@@ -447,7 +447,7 @@ class Catalogos extends CI_Controller {
         case 2:
         case 3:
         case 4:
-             if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(20, $coleccion_id_operaciones))  )   { 
+             if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(20, $data['coleccion_id_operaciones']))  )   { 
                 $this->load->view( 'catalogos/medidas/nuevo_medida');
               }   
           break;
@@ -489,10 +489,10 @@ class Catalogos extends CI_Controller {
 if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
 
 
@@ -509,7 +509,7 @@ if($this->session->userdata('session') === TRUE ){
         case 2:
         case 3:
         case 4:
-             if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(20, $coleccion_id_operaciones))  )   { 
+             if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(20, $data['coleccion_id_operaciones']))  )   { 
                   $data['medida'] = $this->catalogo->coger_medida($data);
                   if ( $data['medida'] !== FALSE ){
                       $this->load->view( 'catalogos/medidas/editar_medida', $data );
@@ -566,10 +566,10 @@ function validacion_edicion_unidad_medida(){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
             $data['nombrecompleto']   = base64_decode($nombrecompleto);
 
@@ -582,7 +582,7 @@ function validacion_edicion_unidad_medida(){
         case 2:
         case 3:
         case 4:
-              if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(20, $coleccion_id_operaciones))  )   { 
+              if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(20, $data['coleccion_id_operaciones']))  )   { 
                 $data['id']         = $id;
                 $this->load->view( 'catalogos/medidas/eliminar_medida', $data );
              }   
@@ -626,10 +626,10 @@ function validacion_edicion_unidad_medida(){
     } else {
         $id_perfil=$this->session->userdata('id_perfil');
 
-        $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-        if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-              $coleccion_id_operaciones = array();
-         }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       } 
 
 
       //$html = $this->load->view( 'catalogos/colores',$data ,true);   
@@ -640,7 +640,7 @@ function validacion_edicion_unidad_medida(){
         case 2:
         case 3:
         case 4:
-             if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(13, $coleccion_id_operaciones))  )   { 
+             if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(13, $data['coleccion_id_operaciones']))  )   { 
                 $this->load->view( 'catalogos/composiciones');
               }  else  {
                 redirect('');
@@ -672,10 +672,10 @@ function validacion_edicion_unidad_medida(){
 if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       switch ($id_perfil) {    
         case 1:
@@ -684,7 +684,7 @@ if($this->session->userdata('session') === TRUE ){
         case 2:
         case 3:
         case 4:
-             if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(13, $coleccion_id_operaciones))  )  { 
+             if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(13, $data['coleccion_id_operaciones']))  )  { 
                 $this->load->view( 'catalogos/composiciones/nuevo_composicion');
               }   
           break;
@@ -735,10 +735,10 @@ if($this->session->userdata('session') === TRUE ){
       if($this->session->userdata('session') === TRUE ){
             $id_perfil=$this->session->userdata('id_perfil');
 
-            $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-            if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                  $coleccion_id_operaciones = array();
-             }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }   
 
 
               $data['id']  = $id;
@@ -754,7 +754,7 @@ if($this->session->userdata('session') === TRUE ){
               case 2:
               case 3:
               case 4:
-                   if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(13, $coleccion_id_operaciones))  )  { 
+                   if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(13, $data['coleccion_id_operaciones']))  )  { 
                       $data['composicion'] = $this->catalogo->coger_composicion($data);
                       if ( $data['composicion'] !== FALSE ){
                           $this->load->view( 'catalogos/composiciones/editar_composicion', $data );
@@ -819,10 +819,10 @@ function validacion_edicion_composicion(){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
             $data['nombrecompleto']   = base64_decode($nombrecompleto);
 
@@ -835,7 +835,7 @@ function validacion_edicion_composicion(){
         case 2:
         case 3:
         case 4:
-              if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(13, $coleccion_id_operaciones))  )  { 
+              if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(13, $data['coleccion_id_operaciones']))  )  { 
                 $data['id']         = $id;
                 $this->load->view( 'catalogos/composiciones/eliminar_composicion', $data );
              }   
@@ -876,10 +876,10 @@ function validacion_edicion_composicion(){
     } else {
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
 
 
@@ -898,7 +898,7 @@ function validacion_edicion_composicion(){
         case 2:
         case 3:
         case 4:
-             if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(13, $coleccion_id_operaciones))  )  { 
+             if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(13, $data['coleccion_id_operaciones']))  )  { 
               ob_start();
               $this->paginacion_ajax_actividad(0); //
               $initial_content = ob_get_contents();
@@ -974,10 +974,10 @@ function validacion_edicion_composicion(){
 if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       switch ($id_perfil) {    
         case 1:
@@ -986,7 +986,7 @@ if($this->session->userdata('session') === TRUE ){
         case 2:
         case 3:
         case 4:
-             if   ( (in_array(8, $coleccion_id_operaciones))  || (in_array(13, $coleccion_id_operaciones))  )  { 
+             if   ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(13, $data['coleccion_id_operaciones']))  )  { 
                 $this->load->view( 'catalogos/actividades/nuevo_actividad');
               }   
           break;
@@ -1029,10 +1029,10 @@ if($this->session->userdata('session') === TRUE ){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
        $data['id']  = $id;
 
@@ -1048,7 +1048,7 @@ if($this->session->userdata('session') === TRUE ){
         case 2:
         case 3:
         case 4:
-              if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(13, $coleccion_id_operaciones))  )  { 
+              if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(13, $data['coleccion_id_operaciones']))  )  { 
                 $data['actividad'] = $this->catalogo->coger_actividad($data);
                 if ( $data['actividad'] !== FALSE ){
                     $this->load->view( 'catalogos/actividades/editar_actividad', $data );
@@ -1103,10 +1103,10 @@ function validacion_edicion_actividad_comercial(){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
             $data['nombrecompleto']   = base64_decode($nombrecompleto);
 
@@ -1119,7 +1119,7 @@ function validacion_edicion_actividad_comercial(){
         case 2:
         case 3:
         case 4:
-              if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(13, $coleccion_id_operaciones))  )  { 
+              if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(13, $data['coleccion_id_operaciones']))  )  { 
                 $data['id']         = $id;
                 $this->load->view( 'catalogos/actividades/eliminar_actividad', $data );
              }   
@@ -1164,10 +1164,10 @@ function validacion_edicion_actividad_comercial(){
     } else {
         $id_perfil=$this->session->userdata('id_perfil');
 
-        $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-        if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-              $coleccion_id_operaciones = array();
-         }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       } 
 
 
       //$html = $this->load->view( 'catalogos/colores',$data ,true);   
@@ -1178,7 +1178,7 @@ function validacion_edicion_actividad_comercial(){
         case 2:
         case 3:
         case 4:
-             if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(12, $coleccion_id_operaciones))  )  { 
+             if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(12, $data['coleccion_id_operaciones']))  )  { 
                 $this->load->view( 'catalogos/colores');
               }  else  {
                 redirect('');
@@ -1211,10 +1211,10 @@ function validacion_edicion_actividad_comercial(){
 if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       switch ($id_perfil) {    
         case 1:
@@ -1223,7 +1223,7 @@ if($this->session->userdata('session') === TRUE ){
         case 2:
         case 3:
         case 4:
-             if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(12, $coleccion_id_operaciones))  )  { 
+             if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(12, $data['coleccion_id_operaciones']))  )  { 
                 $this->load->view( 'catalogos/colores/nuevo_color');
               }   
           break;
@@ -1276,10 +1276,10 @@ if($this->session->userdata('session') === TRUE ){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
        $data['id']  = $id;
 
@@ -1296,7 +1296,7 @@ if($this->session->userdata('session') === TRUE ){
         case 2:
         case 3:
         case 4:
-              if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(12, $coleccion_id_operaciones))  )  { 
+              if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(12, $data['coleccion_id_operaciones']))  )  { 
                   $data['color'] = $this->catalogo->coger_color($data);
                   if ( $data['color'] !== FALSE ){
                       $this->load->view( 'catalogos/colores/editar_color', $data );
@@ -1364,10 +1364,10 @@ function validacion_edicion_color(){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
         $data['nombrecompleto']   = base64_decode($nombrecompleto);
         $data['hexadecimal_color']   = base64_decode($hexadecimal_color);
@@ -1381,7 +1381,7 @@ function validacion_edicion_color(){
         case 2:
         case 3:
         case 4:
-              if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(12, $coleccion_id_operaciones))  )  { 
+              if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(12, $data['coleccion_id_operaciones']))  )  { 
                      $this->load->view( 'catalogos/colores/eliminar_color', $data );
              }   
           break;
@@ -1420,10 +1420,10 @@ function validacion_edicion_color(){
     } else {
         $id_perfil=$this->session->userdata('id_perfil');
 
-        $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-        if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-              $coleccion_id_operaciones = array();
-         }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       } 
 
 
       switch ($id_perfil) {    
@@ -1433,7 +1433,7 @@ function validacion_edicion_color(){
         case 2:
         case 3:
         case 4:
-             if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(19, $coleccion_id_operaciones))  )  { 
+             if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(19, $data['coleccion_id_operaciones']))  )  { 
                 $this->load->view( 'catalogos/calidades');
               }  else  {
                 redirect('');
@@ -1466,10 +1466,10 @@ function validacion_edicion_color(){
     if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 
           switch ($id_perfil) {    
             case 1:
@@ -1478,7 +1478,7 @@ function validacion_edicion_color(){
             case 2:
             case 3:
             case 4:
-                 if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(19, $coleccion_id_operaciones))  )  { 
+                 if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(19, $data['coleccion_id_operaciones']))  )  { 
                     $this->load->view( 'catalogos/calidades/nuevo_calidad');
                   }   
               break;
@@ -1530,10 +1530,10 @@ function validacion_edicion_color(){
     if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
        $data['id']  = $id;
 
@@ -1550,7 +1550,7 @@ function validacion_edicion_color(){
         case 2:
         case 3:
         case 4:
-              if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(19, $coleccion_id_operaciones))  )  { 
+              if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(19, $data['coleccion_id_operaciones']))  )  { 
                     $data['calidad'] = $this->catalogo->coger_calidad($data);
                      if ( $data['calidad'] !== FALSE ){
                        $this->load->view( 'catalogos/calidades/editar_calidad', $data );
@@ -1616,10 +1616,10 @@ function validacion_edicion_calidad(){
     if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
           $data['nombrecompleto']   = base64_decode($nombrecompleto);
           $data['id']         = $id;
@@ -1631,7 +1631,7 @@ function validacion_edicion_calidad(){
         case 2:
         case 3:
         case 4:
-              if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(19, $coleccion_id_operaciones))  )  {                 
+              if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(19, $data['coleccion_id_operaciones']))  )  {                 
                         $this->load->view( 'catalogos/calidades/eliminar_calidad', $data );
              }   
           break;
@@ -1674,10 +1674,10 @@ function validacion_edicion_calidad(){
     } else {
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       switch ($id_perfil) {    
         case 1:
@@ -1694,7 +1694,7 @@ function validacion_edicion_calidad(){
         case 2:
         case 3:
         case 4:
-             if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(18, $coleccion_id_operaciones))  )  { 
+             if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(18, $data['coleccion_id_operaciones']))  )  { 
               ob_start();
               $this->paginacion_ajax_ancho(0); //
               $initial_content = ob_get_contents();
@@ -1770,10 +1770,10 @@ function validacion_edicion_calidad(){
     if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 
           switch ($id_perfil) {    
             case 1:
@@ -1782,7 +1782,7 @@ function validacion_edicion_calidad(){
             case 2:
             case 3:
             case 4:
-                 if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(18, $coleccion_id_operaciones))  )  { 
+                 if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(18, $data['coleccion_id_operaciones']))  )  { 
                     $this->load->view( 'catalogos/anchos/nuevo_ancho');
                   }   
               break;
@@ -1825,10 +1825,10 @@ function validacion_edicion_calidad(){
 if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
        $data['id']  = $id;
 
@@ -1846,7 +1846,7 @@ if($this->session->userdata('session') === TRUE ){
         case 2:
         case 3:
         case 4:
-              if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(18, $coleccion_id_operaciones))  )  { 
+              if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(18, $data['coleccion_id_operaciones']))  )  { 
                 $data['ancho'] = $this->catalogo->coger_ancho($data);
                 if ( $data['ancho'] !== FALSE ){
                     $this->load->view( 'catalogos/anchos/editar_ancho', $data );
@@ -1900,10 +1900,10 @@ function validacion_edicion_ancho(){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['nombrecompleto']   = base64_decode($nombrecompleto);
       $data['id']         = $id;
@@ -1915,7 +1915,7 @@ function validacion_edicion_ancho(){
         case 2:
         case 3:
         case 4:
-              if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(18, $coleccion_id_operaciones))  )  {                 
+              if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(18, $data['coleccion_id_operaciones']))  )  {                 
                         $this->load->view( 'catalogos/anchos/eliminar_ancho', $data );
              }   
           break;
@@ -1957,10 +1957,10 @@ function validacion_edicion_ancho(){
     } else {
         $id_perfil=$this->session->userdata('id_perfil');
 
-        $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-        if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-              $coleccion_id_operaciones = array();
-         }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       } 
 
 
       //$html = $this->load->view( 'catalogos/colores',$data ,true);   
@@ -1971,7 +1971,7 @@ function validacion_edicion_ancho(){
         case 2:
         case 3:
         case 4:
-             if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(17, $coleccion_id_operaciones))  )  { 
+             if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(17, $data['coleccion_id_operaciones']))  )  { 
                 $this->load->view( 'catalogos/cargadores');
               }  else  {
                 redirect('');
@@ -2003,10 +2003,10 @@ function validacion_edicion_ancho(){
     if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 
           switch ($id_perfil) {    
             case 1:
@@ -2015,7 +2015,7 @@ function validacion_edicion_ancho(){
             case 2:
             case 3:
             case 4:
-                 if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(17, $coleccion_id_operaciones))  )  { 
+                 if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(17, $data['coleccion_id_operaciones']))  )  { 
                     $this->load->view( 'catalogos/cargadores/nuevo_cargador');
                   }   
               break;
@@ -2066,10 +2066,10 @@ function validacion_edicion_ancho(){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
        $data['id']  = $id;
 
@@ -2088,7 +2088,7 @@ function validacion_edicion_ancho(){
         case 2:
         case 3:
         case 4:
-              if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(17, $coleccion_id_operaciones))  )  { 
+              if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(17, $data['coleccion_id_operaciones']))  )  { 
                     $data['cargador'] = $this->catalogo->coger_cargador($data);
                     if ( $data['cargador'] !== FALSE ){
                         $this->load->view( 'catalogos/cargadores/editar_cargador', $data );
@@ -2151,10 +2151,10 @@ function validacion_edicion_cargador(){
     if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['nombrecompleto']   = base64_decode($nombrecompleto);
       $data['id']         = $id;
@@ -2166,7 +2166,7 @@ function validacion_edicion_cargador(){
         case 2:
         case 3:
         case 4:
-              if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(17, $coleccion_id_operaciones))  )  {                 
+              if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(17, $data['coleccion_id_operaciones']))  )  {                 
                         $this->load->view( 'catalogos/cargadores/eliminar_cargador', $data );
              }   
           break;
@@ -2206,10 +2206,10 @@ function validacion_edicion_cargador(){
     } else {
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
 
 
@@ -2228,7 +2228,7 @@ function validacion_edicion_cargador(){
         case 2:
         case 3:
         case 4:
-             if  ( (in_array(8, $coleccion_id_operaciones))  || (in_array(22, $coleccion_id_operaciones))  )  { 
+             if  ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(22, $data['coleccion_id_operaciones']))  )  { 
               ob_start();
               $this->paginacion_ajax_operacion(0);//
               $initial_content = ob_get_contents();
@@ -2303,10 +2303,10 @@ function validacion_edicion_cargador(){
     if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 
           switch ($id_perfil) {    
             case 1:
@@ -2315,7 +2315,7 @@ function validacion_edicion_cargador(){
             case 2:
             case 3:
             case 4:
-                 if   ( (in_array(8, $coleccion_id_operaciones))  || (in_array(22, $coleccion_id_operaciones))  )   { 
+                 if   ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(22, $data['coleccion_id_operaciones']))  )   { 
                     $this->load->view( 'catalogos/operaciones/nuevo_operacion');
                   }   
               break;
@@ -2358,10 +2358,10 @@ function validacion_edicion_cargador(){
     if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
        $data['id']  = $id;
 
@@ -2378,7 +2378,7 @@ function validacion_edicion_cargador(){
         case 2:
         case 3:
         case 4:
-              if   ( (in_array(8, $coleccion_id_operaciones))  || (in_array(22, $coleccion_id_operaciones))  )   { 
+              if   ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(22, $data['coleccion_id_operaciones']))  )   { 
                   $data['operacion']  = $this->catalogo->coger_operacion($data);
                   if ( $data['operacion'] !== FALSE ){
                       $this->load->view( 'catalogos/operaciones/editar_operacion', $data );
@@ -2433,10 +2433,10 @@ function validacion_edicion_operacion(){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['nombrecompleto']   = base64_decode($nombrecompleto);
       $data['id']         = $id;
@@ -2448,7 +2448,7 @@ function validacion_edicion_operacion(){
         case 2:
         case 3:
         case 4:
-              if   ( (in_array(8, $coleccion_id_operaciones))  || (in_array(22, $coleccion_id_operaciones))  )   {                 
+              if   ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(22, $data['coleccion_id_operaciones']))  )   {                 
                         $this->load->view( 'catalogos/operaciones/eliminar_operacion', $data );
              }   
           break;
@@ -2489,12 +2489,11 @@ function validacion_edicion_operacion(){
         $id_perfil=$this->session->userdata('id_perfil');
 
         //devuelve un arreglo de todas las operaciones asociadas al usuario activo           
-        $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 
-        //me aseguro que el arreglo se haga vacio sino tiene operaciones asociadas    
-         if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-              $coleccion_id_operaciones = array();
-         }   
 
 
       switch ($id_perfil) {    
@@ -2504,8 +2503,8 @@ function validacion_edicion_operacion(){
         case 2:
         case 3: //8catalogo, 14proveedores, 15cliente, 16comprador
         case 4:
-             if ( (in_array(8, $coleccion_id_operaciones))  || (in_array(14, $coleccion_id_operaciones))  
-                      || (in_array(15, $coleccion_id_operaciones)) || (in_array(16, $coleccion_id_operaciones)) )   { 
+             if ( (in_array(8, $data['coleccion_id_operaciones']))  || (in_array(14, $data['coleccion_id_operaciones']))  
+                      || (in_array(15, $data['coleccion_id_operaciones'])) || (in_array(16, $data['coleccion_id_operaciones'])) )   { 
 
 
                 $this->load->view( 'catalogos/proveedores');
@@ -2533,10 +2532,10 @@ function validacion_edicion_operacion(){
           $id_perfil=$this->session->userdata('id_perfil');
           
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 
            $data['actividades']  = $this->catalogo->listado_actividades();
           switch ($id_perfil) {    
@@ -2547,26 +2546,26 @@ function validacion_edicion_operacion(){
             case 2:
             case 3:
             case 4:
-                 if   ((in_array(8, $coleccion_id_operaciones))  || (in_array(14, $coleccion_id_operaciones))  
-                      || (in_array(15, $coleccion_id_operaciones)) || (in_array(16, $coleccion_id_operaciones)) )   { 
+                 if   ((in_array(8, $data['coleccion_id_operaciones']))  || (in_array(14, $data['coleccion_id_operaciones']))  
+                      || (in_array(15, $data['coleccion_id_operaciones'])) || (in_array(16, $data['coleccion_id_operaciones'])) )   { 
                     
                       
                       $identificador ='';
-                      if   (in_array(14, $coleccion_id_operaciones))    { 
+                      if   (in_array(14, $data['coleccion_id_operaciones']))    { 
                           $identificador .='(a.id=1)';
                       }  
 
-                      if   (in_array(15, $coleccion_id_operaciones))    { 
+                      if   (in_array(15, $data['coleccion_id_operaciones']))    { 
                         if ($identificador!='') {$identificador.=' OR '; }
                          $identificador .='(a.id=2)';
                       }  
                        
-                      if   (in_array(16, $coleccion_id_operaciones))    { 
+                      if   (in_array(16, $data['coleccion_id_operaciones']))    { 
                          if ($identificador!='') {$identificador.=' OR '; }
                              $identificador .='(a.id=3)';
                        }   
                       
-                      if   (!(in_array(8, $coleccion_id_operaciones)))    { 
+                      if   (!(in_array(8, $data['coleccion_id_operaciones'])))    { 
 
                         $data['actividades']  = $this->catalogo->listado_actividades(-1,-1, $identificador);                
                       }  
@@ -2639,10 +2638,10 @@ function validacion_edicion_operacion(){
     if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['codigo_ant']  = $codigo;
       $data['codigo']  = $codigo;
@@ -2664,8 +2663,8 @@ function validacion_edicion_operacion(){
         case 2:
         case 3:
         case 4:
-                 if   ((in_array(8, $coleccion_id_operaciones))  || (in_array(14, $coleccion_id_operaciones))  
-                      || (in_array(15, $coleccion_id_operaciones)) || (in_array(16, $coleccion_id_operaciones)) )   { 
+                 if   ((in_array(8, $data['coleccion_id_operaciones']))  || (in_array(14, $data['coleccion_id_operaciones']))  
+                      || (in_array(15, $data['coleccion_id_operaciones'])) || (in_array(16, $data['coleccion_id_operaciones'])) )   { 
 
                     $this->load->view( 'catalogos/proveedores/editar_proveedor', $data );
                   }   
@@ -2741,10 +2740,10 @@ function validacion_edicion_proveedor(){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['nombrecompleto']   = base64_decode($nombrecompleto);
       $data['codigo']         = $codigo;
@@ -2756,8 +2755,8 @@ function validacion_edicion_proveedor(){
         case 2:
         case 3:
         case 4:
-              if  ((in_array(8, $coleccion_id_operaciones))  || (in_array(14, $coleccion_id_operaciones))  
-              || (in_array(15, $coleccion_id_operaciones)) || (in_array(16, $coleccion_id_operaciones)) )   { 
+              if  ((in_array(8, $data['coleccion_id_operaciones']))  || (in_array(14, $data['coleccion_id_operaciones']))  
+              || (in_array(15, $data['coleccion_id_operaciones'])) || (in_array(16, $data['coleccion_id_operaciones'])) )   { 
                         $this->load->view( 'catalogos/proveedores/eliminar_proveedor', $data );
              }   
           break;
@@ -2801,10 +2800,10 @@ function validacion_edicion_proveedor(){
     } else {
         $id_perfil=$this->session->userdata('id_perfil');
 
-        $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-        if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-              $coleccion_id_operaciones = array();
-         }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       } 
 
 
            //no. movimiento $data
@@ -2821,7 +2820,7 @@ function validacion_edicion_proveedor(){
             case 3:
             case 4:
 
-              if  ((in_array(8, $coleccion_id_operaciones))  || (in_array(11, $coleccion_id_operaciones)))   { 
+              if  ((in_array(8, $data['coleccion_id_operaciones']))  || (in_array(11, $data['coleccion_id_operaciones'])))   { 
                   //$data['productos']  = $this->catalogo->listado_productos($config['per_page'], $offset);
                   $html = $this->load->view( 'catalogos/productos',$data);
 
@@ -2851,10 +2850,10 @@ function validacion_edicion_proveedor(){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['colores'] =  $this->catalogo->listado_colores(  );
       $data['composiciones'] =  $this->catalogo->listado_composiciones(  );
@@ -2867,7 +2866,7 @@ function validacion_edicion_proveedor(){
         case 2:
         case 3:
         case 4:
-             if  ((in_array(8, $coleccion_id_operaciones))  || (in_array(11, $coleccion_id_operaciones)))   { 
+             if  ((in_array(8, $data['coleccion_id_operaciones']))  || (in_array(11, $data['coleccion_id_operaciones'])))   { 
                 $this->load->view( 'catalogos/productos/nuevo_producto',$data);
               }   
           break;
@@ -3063,10 +3062,10 @@ function validacion_edicion_proveedor(){
     if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['id_ant']  =  base64_decode($id);
       $data['id']  =  base64_decode($id);
@@ -3091,7 +3090,7 @@ function validacion_edicion_proveedor(){
         case 2:
         case 3:
         case 4:
-              if  ((in_array(8, $coleccion_id_operaciones))  || (in_array(11, $coleccion_id_operaciones)))  { 
+              if  ((in_array(8, $data['coleccion_id_operaciones']))  || (in_array(11, $data['coleccion_id_operaciones'])))  { 
                 $data['producto']  = $this->catalogo->coger_producto($data);
                 if ( $data['producto'] !== FALSE ){
                     $this->load->view( 'catalogos/productos/editar_producto', $data );
@@ -3270,10 +3269,10 @@ function validacion_edicion_producto(){
     if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['id_ant']  =  base64_decode($id);
       $data['id']  =  base64_decode($id);
@@ -3298,7 +3297,7 @@ function validacion_edicion_producto(){
         case 2:
         case 3:
         case 4:
-              if  ((in_array(8, $coleccion_id_operaciones))  || (in_array(11, $coleccion_id_operaciones)))  { 
+              if  ((in_array(8, $data['coleccion_id_operaciones']))  || (in_array(11, $data['coleccion_id_operaciones'])))  { 
                 $data['producto']  = $this->catalogo->coger_producto($data);
                 if ( $data['producto'] !== FALSE ){
                     $this->load->view( 'catalogos/productos/editar_minimo', $data );
@@ -3368,10 +3367,10 @@ function validacion_edicion_minimo(){
      if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['nombrecompleto']   = base64_decode($nombrecompleto);
       $data['id']         = $id;
@@ -3383,7 +3382,7 @@ function validacion_edicion_minimo(){
         case 2:
         case 3:
         case 4:
-              if  ((in_array(8, $coleccion_id_operaciones))  || (in_array(11, $coleccion_id_operaciones)))  {                 
+              if  ((in_array(8, $data['coleccion_id_operaciones']))  || (in_array(11, $data['coleccion_id_operaciones'])))  {                 
                         $this->load->view( 'catalogos/productos/eliminar_producto', $data );
              }   
           break;
@@ -3424,10 +3423,10 @@ function validacion_edicion_minimo(){
     if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['id_ant']  =  base64_decode($id);
       $data['id']  =  base64_decode($id);
@@ -3451,7 +3450,7 @@ function validacion_edicion_minimo(){
         case 2:
         case 3:
         case 4:
-              if  ((in_array(8, $coleccion_id_operaciones))  || (in_array(11, $coleccion_id_operaciones)))  { 
+              if  ((in_array(8, $data['coleccion_id_operaciones']))  || (in_array(11, $data['coleccion_id_operaciones'])))  { 
                 $data['producto']  = $this->catalogo->coger_producto($data);
                 if ( $data['producto'] !== FALSE ){
                     $this->load->view( 'catalogos/productos/cambiar_precio', $data );
@@ -3479,10 +3478,10 @@ function validacion_edicion_minimo(){
     if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['id_ant']  =  base64_decode($id);
       $data['id']  =  base64_decode($id);
@@ -3506,7 +3505,7 @@ function validacion_edicion_minimo(){
         case 2:
         case 3:
         case 4:
-              if  ((in_array(8, $coleccion_id_operaciones))  || (in_array(11, $coleccion_id_operaciones)))  { 
+              if  ((in_array(8, $data['coleccion_id_operaciones']))  || (in_array(11, $data['coleccion_id_operaciones'])))  { 
                 $data['producto']  = $this->catalogo->coger_producto($data);
                 if ( $data['producto'] !== FALSE ){
                     $this->load->view( 'catalogos/productos/detalle_producto', $data );
@@ -3660,10 +3659,10 @@ function catalogo_modal($catalogo, $uri){
   if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
         $data['catalogo']   = $catalogo;
         $data['uri']    = $uri;
@@ -3680,7 +3679,7 @@ function catalogo_modal($catalogo, $uri){
         case 2:
         case 3:
         case 4:
-              if  (in_array(8, $coleccion_id_operaciones))  {                 
+              if  (in_array(8, $data['coleccion_id_operaciones']))  {                 
                         $this->load->view( 'catalogos/modal/catalogo_modal', $data );
              }   
           break;
@@ -3808,10 +3807,10 @@ function catalogo_modal($catalogo, $uri){
     } else {
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       switch ($id_perfil) {    
         case 1:
@@ -3889,10 +3888,10 @@ function catalogo_modal($catalogo, $uri){
     if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 
           switch ($id_perfil) {    
             case 1:
@@ -3939,10 +3938,10 @@ function catalogo_modal($catalogo, $uri){
 if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
        $data['id']  = $id;
 
@@ -4006,10 +4005,10 @@ function validacion_edicion_almacen(){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['nombrecompleto']   = base64_decode($nombrecompleto);
       $data['id']         = $id;
@@ -4063,10 +4062,10 @@ function validacion_edicion_almacen(){
     } else {
         $id_perfil=$this->session->userdata('id_perfil');
 
-        $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-        if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-              $coleccion_id_operaciones = array();
-         }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       } 
 
 
       switch ($id_perfil) {    
@@ -4107,10 +4106,11 @@ function validacion_edicion_almacen(){
     if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
+
 
           switch ($id_perfil) {    
             case 1:
@@ -4160,10 +4160,10 @@ function validacion_edicion_almacen(){
 if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
        $data['id']  = $id;
 
@@ -4230,10 +4230,10 @@ function validacion_edicion_configuracion(){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['nombrecompleto']   = base64_decode($nombrecompleto);
       $data['id']         = $id;
@@ -4283,10 +4283,10 @@ function validacion_edicion_configuracion(){
     } else {
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       switch ($id_perfil) {    
         case 1:
@@ -4364,10 +4364,10 @@ function validacion_edicion_configuracion(){
     if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 
           switch ($id_perfil) {    
             case 1:
@@ -4418,10 +4418,10 @@ function validacion_edicion_configuracion(){
 if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
        $data['id']  = $id;
 
@@ -4486,10 +4486,10 @@ function validacion_edicion_tipo_factura(){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['nombrecompleto']   = base64_decode($nombrecompleto);
       $data['id']         = $id;
@@ -4541,10 +4541,10 @@ function validacion_edicion_tipo_factura(){
     } else {
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       switch ($id_perfil) {    
         case 1:
@@ -4626,10 +4626,10 @@ function validacion_edicion_tipo_factura(){
     if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 
           switch ($id_perfil) {    
             case 1:
@@ -4676,10 +4676,10 @@ function validacion_edicion_tipo_factura(){
 if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
        $data['id']  = $id;
 
@@ -4742,10 +4742,10 @@ function validacion_edicion_tipo_pedido(){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['nombrecompleto']   = base64_decode($nombrecompleto);
       $data['id']         = $id;
@@ -4797,10 +4797,10 @@ function validacion_edicion_tipo_pedido(){
     } else {
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       switch ($id_perfil) {    
         case 1:
@@ -4881,11 +4881,11 @@ function validacion_edicion_tipo_pedido(){
     if($this->session->userdata('session') === TRUE ){
           $id_perfil=$this->session->userdata('id_perfil');
 
-          $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-          if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-                $coleccion_id_operaciones = array();
-           }   
-
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
+           
           switch ($id_perfil) {    
             case 1:
               if ( ( $id_perfil == 1 ) && ($this->session->userdata('especial') ==1 ) ) {
@@ -4933,10 +4933,10 @@ function validacion_edicion_tipo_pedido(){
 if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
        $data['id']  = $id;
 
@@ -4998,10 +4998,10 @@ function validacion_edicion_tipo_venta(){
       if($this->session->userdata('session') === TRUE ){
       $id_perfil=$this->session->userdata('id_perfil');
 
-      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-            $coleccion_id_operaciones = array();
-       }   
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }  
 
       $data['nombrecompleto']   = base64_decode($nombrecompleto);
       $data['id']         = $id;

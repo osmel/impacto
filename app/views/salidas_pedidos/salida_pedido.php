@@ -15,7 +15,8 @@
      $id_almacen=$this->session->userdata('id_almacen');
 
 	$config_almacen = $this->session->userdata( 'config_almacen' );
-	$el_perfil = $this->session->userdata( 'id_perfil' );
+	$perfil = $this->session->userdata( 'id_perfil' );
+
 
 	if ($val_proveedor) {
 
@@ -221,11 +222,11 @@
 								
 							<div class="form-group">
 
-								<button data-on="Cliente" data="editar_proveedor" class="btn btn-danger  on-off <?php echo (($val_proveedor) ? (($val_proveedor->on_off==0) ? 'activo' : 'btn-outline' ) :'activo' ); ?>" style="margin-bottom: 5px">Cliente</button>
+								<button style="display: <?php echo ( ( $perfil == 1 ) || (in_array(4, $coleccion_id_operaciones)) ) ? 'inline-block': 'none';?>" data-on="Cliente" data="editar_proveedor" class="btn btn-danger  on-off <?php echo (($val_proveedor) ? (($val_proveedor->on_off==0) ? 'activo' : 'btn-outline' ) :'activo' ); ?>" style="margin-bottom: 5px">Cliente</button>
 
-								<button data-on="Tienda" data="editar_tienda" class="btn btn-success on-off <?php echo (($val_proveedor) ? (($val_proveedor->on_off==1) ? 'activo' : 'btn-outline') :'btn-outline' ); ?>" style="margin-bottom: 5px">Tienda</button>
+								<button style="display: <?php echo ( ( $perfil == 1 ) || (in_array(97, $coleccion_id_operaciones)) ) ? 'inline-block': 'none';?>" data-on="Tienda" data="editar_tienda" class="btn btn-success on-off <?php echo (($val_proveedor) ? (($val_proveedor->on_off==1) ? 'activo' : 'btn-outline') :'btn-outline' ); ?>" style="margin-bottom: 5px">Tienda</button>
 								
-								<button  data-on="Bodega" data="editar_bodega" class="btn btn-warning on-off <?php echo (($val_proveedor) ? (($val_proveedor->on_off==2) ? 'activo' : 'btn-outline') :'btn-outline' ); ?>" style="margin-bottom: 5px">Bodega</button>
+								<button style="display: <?php echo ( ( $perfil == 1 ) || (in_array(98, $coleccion_id_operaciones)) ) ? 'inline-block': 'none';?>"  data-on="Bodega" data="editar_bodega" class="btn btn-warning on-off <?php echo (($val_proveedor) ? (($val_proveedor->on_off==2) ? 'activo' : 'btn-outline') :'btn-outline' ); ?>" style="margin-bottom: 5px">Bodega</button>
 
 								
 								

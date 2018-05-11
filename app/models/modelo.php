@@ -280,6 +280,7 @@
 
             $this->db->select('id, operacion, tooltip, grupo');
             $this->db->from($this->catalogo_operaciones);
+            $this->db->where( 'activo', 1 );
 
             $this->db->order_by('orden', 'asc'); 
 

@@ -136,11 +136,10 @@ class Entrada_compra extends CI_Controller {
 		 if($this->session->userdata('session') === TRUE ){
 		      $id_perfil=$this->session->userdata('id_perfil');
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }   
-		       	$data['medidas']        = $this->catalogo->listado_medidas();
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }		       	$data['medidas']        = $this->catalogo->listado_medidas();
 		       	$data['estatuss']   	= $this->catalogo->listado_estatus(-1,-1,'1');
 		       	$data['lotes']      	= $this->catalogo->listado_lotes(-1,-1,'1');
 
@@ -187,7 +186,7 @@ class Entrada_compra extends CI_Controller {
 		        case 2:
 		        case 3:
 		        case 4:
-		              if  (in_array(1, $coleccion_id_operaciones))  {                 
+		              if  (in_array($data['id_operacion'], $data['coleccion_id_operaciones']))  {                 
 		                        $this->load->view( 'entrada_compra/entrada_compra',$data );
 		             }   
 		          break;
@@ -352,13 +351,14 @@ class Entrada_compra extends CI_Controller {
 	    } else {
 	      $id_perfil=$this->session->userdata('id_perfil');
 
-	      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-	      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-	            $coleccion_id_operaciones = array();
-	      }   
-
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 			$data['nombrecompleto'] 	= base64_decode($nombrecompleto);
 			$data['id'] 				= $id;
+
+			$data['id_operacion']=71;
 	 
 	      switch ($id_perfil) {    
 	        case 1:
@@ -368,7 +368,7 @@ class Entrada_compra extends CI_Controller {
 	        case 2:
 	        case 3:
 	        case 4:
-	             if  (in_array(1, $coleccion_id_operaciones))  { 
+	             if  (in_array($data['id_operacion'], $data['coleccion_id_operaciones']))  { 
 
 					$this->load->view( 'entrada_compra/temporales/eliminar_producto', $data );
 	                 
@@ -420,11 +420,10 @@ class Entrada_compra extends CI_Controller {
 
 		      $data['dev'] = 0; 
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }  
-
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 		      //si existe elemento en la tabla temporal
 		      $existe = $this->model_entrada_compra->existencia_temporales();
 		     
@@ -488,14 +487,14 @@ class Entrada_compra extends CI_Controller {
 			//$data['id_estatus'] = base64_decode($id_estatus);
 			 $data['id_estatus']   = 0; 
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }  			
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }		
 
 		       $data['etiq_mov'] ="de Entrada";
 
-		       
+		       $data['id_operacion']=71;
 
 
 
@@ -508,7 +507,7 @@ class Entrada_compra extends CI_Controller {
 			        case 2:
 			        case 3:
 			        case 4:
-			              if  (in_array(1, $coleccion_id_operaciones))  {                 
+			              if  (in_array($data['id_operacion'], $data['coleccion_id_operaciones']))  {                 
 						    $data['movimientos']  = $this->model_entrada_compra->listado_movimientos_registros($data);
 			                $this->load->view( 'pdfs/pdfs_view',$data );
 			             }   
@@ -547,11 +546,10 @@ class Entrada_compra extends CI_Controller {
 
 		      
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }  
-
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 		      $existe = $this->model_entrada_compra->existencia_temporales();
 
 		     
@@ -623,7 +621,7 @@ class Entrada_compra extends CI_Controller {
 			        case 4:
 			        		//solo el que tiene 9 porque nos lleva a un detalle de reporte, este es para los botones que
 			        		//aparecen en todo el sistema que tiene el numero de entrada
-			              if ( (in_array(9, $coleccion_id_operaciones)) || (in_array(50, $coleccion_id_operaciones))   )  {   //los 
+			              if ( (in_array(9, $data['coleccion_id_operaciones'])) || (in_array(50, $data['coleccion_id_operaciones']))   )  {   //los 
 						       $data['movimientos']  = $this->model_entrada_compra->listado_movimientos_registros($data);
 			                   $this->load->view( 'pdfs/pdfs_view',$data );
 			              } else {

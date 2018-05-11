@@ -29,11 +29,11 @@ public function consecutivo_entrada(){
 		 if($this->session->userdata('session') === TRUE ){
 		      $id_perfil=$this->session->userdata('id_perfil');
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }   
-		       	$data['medidas']        = $this->catalogo->listado_medidas();
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }
+       	       	$data['medidas']        = $this->catalogo->listado_medidas();
 		       	$data['estatuss']   	= $this->catalogo->listado_estatus(-1,-1,'1');
 		       	$data['lotes']      	= $this->catalogo->listado_lotes(-1,-1,'1');
 
@@ -75,7 +75,7 @@ public function consecutivo_entrada(){
 		        case 2:
 		        case 3:
 		        case 4:
-		              if  (in_array(1, $coleccion_id_operaciones))  {                 
+		              if  (in_array($data['id_operacion'], $data['coleccion_id_operaciones']))  {                 
 		                        $this->load->view( 'entradas/entradas',$data );
 		             }   
 		          break;
@@ -237,13 +237,14 @@ public function consecutivo_entrada(){
 	    } else {
 	      $id_perfil=$this->session->userdata('id_perfil');
 
-	      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-	      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-	            $coleccion_id_operaciones = array();
-	      }   
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 
 			$data['nombrecompleto'] 	= base64_decode($nombrecompleto);
 			$data['id'] 				= $id;
+			$data['id_operacion']= 1;
 	 
 	      switch ($id_perfil) {    
 	        case 1:
@@ -253,7 +254,7 @@ public function consecutivo_entrada(){
 	        case 2:
 	        case 3:
 	        case 4:
-	             if  (in_array(1, $coleccion_id_operaciones))  { 
+	             if  (in_array($data['id_operacion'], $data['coleccion_id_operaciones']))  { 
 
 					$this->load->view( 'entradas/temporales/eliminar_producto', $data );
 	                 
@@ -306,11 +307,10 @@ public function consecutivo_entrada(){
 
 		      $data['dev'] = 0; 
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }  
-
+          $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+           } 
 		      //si existe elemento en la tabla temporal
 		      $existe = $this->model_entrada->existencia_temporales();
 		     
@@ -375,10 +375,10 @@ public function consecutivo_entrada(){
 			 $data['id_estatus']   = 0; 
 			 $data['id_operacion']= 1;
 
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }  			
+       $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+       if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+                $data['coleccion_id_operaciones'] = array();
+       }		
 
 		       $data['etiq_mov'] ="de Entrada";
 
@@ -397,7 +397,7 @@ public function consecutivo_entrada(){
 			        case 2:
 			        case 3:
 			        case 4:
-			              if  (in_array(1, $coleccion_id_operaciones))  {                 
+			              if  (in_array($data['id_operacion'], $data['coleccion_id_operaciones']))  {                 
 						    $data['movimientos']  = $this->model_entrada->listado_movimientos_registros($data);
 			                $this->load->view( 'pdfs/pdfs_view',$data );
 			             }   
@@ -434,12 +434,7 @@ public function consecutivo_entrada(){
 
 
 		      
-		      /*
-		      $coleccion_id_operaciones= json_decode($this->session->userdata('coleccion_id_operaciones')); 
-		      if ( (count($coleccion_id_operaciones)==0) || (!($coleccion_id_operaciones)) ) {
-		            $coleccion_id_operaciones = array();
-		       }  */
-
+		      
 		      $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
 	          if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
 	                $data['coleccion_id_operaciones'] = array();

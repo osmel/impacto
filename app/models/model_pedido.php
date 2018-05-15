@@ -2075,6 +2075,7 @@
 
 
 
+
           
           $where_total = '( m.id_apartado = 3 ) or ( m.id_apartado = 6 )'.$id_almacenid; 
 
@@ -2084,6 +2085,7 @@
             $where_total .=' AND (m.id_usuario_apartado = "'.$id_session.'")';
           }
 */
+          
 
 
          if  (($this->session->userdata('id_perfil')!=1) &&  ($this->session->userdata('id_perfil')!=2)) {

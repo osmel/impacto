@@ -678,6 +678,10 @@ public function procesando_servidor(){
 //regilla2 de salida
 	public function procesando_servidor_salida(){
 		$data=$_POST;
+		        $data['coleccion_id_operaciones']= json_decode($this->session->userdata('coleccion_id_operaciones')); 
+        if ( (count($data['coleccion_id_operaciones'])==0) || (!($data['coleccion_id_operaciones'])) ) {
+              $data['coleccion_id_operaciones'] = array();
+         } 
 		$busqueda = $this->modelo_salida->buscador_salida($data);
 		echo $busqueda;
 	}

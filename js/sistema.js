@@ -2630,8 +2630,11 @@ jQuery('#existencia_reporte').click(function (e) {
 	jQuery('#id_estatuss option:eq(0)').prop('selected', 'selected');
 
 	if ( jQuery("#mi_perfil").val() !='2') {
+	//if  ( !( ( jQuery("#mi_perfil").val() =='2') && ( parseInt(jQuery("#config_existencia_almacen").val()) == 0) ) )  {		
 		jQuery('#id_almacen_reporte option:eq(0)').prop('selected', 'selected');
 	}
+
+
 
 	jQuery('#id_factura_reporte').html(''); 
 	jQuery('#id_factura_reporte').append('<option value="0">Todos</option>');

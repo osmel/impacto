@@ -188,12 +188,14 @@
 
 							<input type="hidden" id="mi_perfil" name="mi_perfil" value="<?php echo $this->session->userdata( 'id_perfil' ); ?>">
 							
-							<div id="almacen_id" class="col-xs-12 col-sm-6 col-md-2"  <?php echo 'style="display:'.( (($config_almacen->activo==0) && ($el_perfil==2) ) ? 'none':'block').'"'; ?>>
+							<div id="almacen_id" class="col-xs-12 col-sm-6 col-md-2"  <?php echo 'style="display:'.( ( ($config_almacen->activo==0) && ($el_perfil==2)   && (!(in_array(103, $coleccion_id_operaciones)))   ) ? 'none':'block').'"'; ?>>
 								<div class="form-group">
 									<label for="almacen" class="col-sm-12 col-md-12">Almacén</label>
 									<div class="col-sm-12 col-md-12">
 				
-							    <?php if  ( $this->session->userdata( 'id_perfil' ) != 2  ) { ?>
+							    <?php if  (! ( ( $el_perfil == 2 ) &&  (!(in_array(103, $coleccion_id_operaciones))) )   )
+
+							     { ?>
 									 <fieldset class="disabledme">				
 								<?php } else { ?>	
 									 <fieldset class="disabledme" disabled>

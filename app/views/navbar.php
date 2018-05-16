@@ -105,6 +105,10 @@
 
 <input type="hidden" id="config_salida" name="config_salida" value="<?php echo $this->session->userdata('config_salida'); ?>">		
 
+
+
+<input type="hidden" id="config_existencia_almacen" name="config_existencia_almacen" value="<?php  echo	( ( $perfil == 2 ) && (in_array(103, $coleccion_id_operaciones)) ) ? '1' : '0';	?>" >
+
 <input type="hidden" id="config_almacen" name="config_almacen" value="<?php echo $config_almacen->activo; ?>" >
 <input type="hidden" id="config_entrada_activo" name="config_entrada_activo" value="<?php echo $configuracion_entrada->activo; ?>">
 <input type="hidden" id="config_salida_activo" name="config_salida_activo" value="<?php echo $configuracion_salida->activo; ?>">

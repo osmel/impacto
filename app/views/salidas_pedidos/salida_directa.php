@@ -246,8 +246,9 @@
 
 								<button style="display: <?php echo ( ( $perfil == 1 ) || (in_array(2, $coleccion_id_operaciones)) ) ? 'inline-block': 'none';?>" data-on="Cliente" data="editar_proveedor" class="btn btn-danger  on-off <?php echo (($val_proveedor) ? (($val_proveedor->on_off==0) ? 'activo' : 'btn-outline' ) :'activo' ); ?>" style="margin-bottom: 5px">Cliente</button>
 
+								<!--
 								<button style="display: <?php echo ( ( $perfil == 1 ) || (in_array(94, $coleccion_id_operaciones)) ) ? 'inline-block': 'none';?>" data-on="Tienda" data="editar_tienda" class="btn btn-success on-off <?php echo (($val_proveedor) ? (($val_proveedor->on_off==1) ? 'activo' : 'btn-outline') :'btn-outline' ); ?>" style="margin-bottom: 5px">Tienda</button>
-								
+								-->
 								<button style="display: <?php echo ( ( $perfil == 1 ) || (in_array(95, $coleccion_id_operaciones)) ) ? 'inline-block': 'none';?>"  data-on="Bodega" data="editar_bodega" class="btn btn-warning on-off <?php echo (($val_proveedor) ? (($val_proveedor->on_off==2) ? 'activo' : 'btn-outline') :'btn-outline' ); ?>" style="margin-bottom: 5px">Bodega</button>
 
 								

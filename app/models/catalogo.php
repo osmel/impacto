@@ -4009,7 +4009,7 @@ public function consecutivo_general_salida($data){
 
           if  ( (($this->session->userdata('id_perfil')!=1) &&  ($this->session->userdata('id_perfil')!=2))  and (!(in_array(98, $data['coleccion_id_operaciones']))) ) {
             $where = '( c.id <> 3 ) ';
-            $this->db->where($where);
+          //  $this->db->where($where);
           }
 
 

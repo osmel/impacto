@@ -57,7 +57,7 @@ jQuery('#id_tipo_factura[pantalla="pedir"]').on('change', function(e) {
 	var oTable =jQuery('#tabla_pedido_completado').dataTable();
 	oTable._fnAjaxUpdate();		
 
-	//jQuery('#pedido_entrada').dataTable().fnDraw();
+	
 });
 
 
@@ -7686,18 +7686,6 @@ jQuery('#tabla_pedido').dataTable( {
 });	
 
 
-jQuery('body').on('click','#conf_pedido_PRUEBAbORRAR', function (e) {
-	
-	num_mov=jQuery('#movimiento').val();
-	id_tipo_pedido = jQuery("#id_tipo_pedido").val();
-	id_tipo_factura = (id_tipo_pedido==2) ? 0:jQuery("#id_tipo_factura").val();
-
-	on_off  = jQuery('button.activo').attr('data'); 
-	id_operacion_pedido  = ((on_off=='editar_tienda') ? 97 : ((on_off=='editar_bodega') ? 98 : 4) );
-		        	 
-	alert(id_operacion_pedido);
-
-});
 
 jQuery('body').on('click','#conf_pedido', function (e) {
 
@@ -7771,6 +7759,687 @@ jQuery('body').on('click','#conf_pedido', function (e) {
 
 
 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+jQuery('#entrada_directa').dataTable( {
+	
+	"processing": true,
+	"serverSide": true,
+	"ajax": {
+            	"url" : "procesando_entrada_directa",
+         		"type": "POST",
+         		 "data": function ( d ) {
+         		 	   if (comienzo) {
+         		 	   	 //d.start=0;	 //comienza en cero siempre q cambia de botones
+         		 	   	 d.draw =0;
+         		 	   }
+		 			    d.id_descripcion = jQuery("#producto_pedido").val();
+	 				  if (d.id_descripcion !='') {
+   				   	    d.id_descripcion = jQuery('#producto_pedido option:selected').text();
+	 				  }
+
+	 				  d. val_prod_id = jQuery('#producto_pedido option:selected').val();
+ 		 				d.id_composicion = jQuery('#composicion_pedido').val();  		  
+ 		 				   	     d.ancho = jQuery('#ancho_pedido').val();  		  
+ 		 					  d.id_color = jQuery('#color_pedido').val();  		  
+ 		 				  d.id_proveedor = jQuery('#proveedor_pedido').val();  
+ 		 				    d.id_almacen = jQuery('#id_almacen_generar_pedido').val(); //(jQuery("#id_tipo_pedido").val()==3) ?  jQuery('#id_almacen_generar_pedido').val() : 0;  
+
+							d.id_tipo_pedido = jQuery("#id_tipo_pedido").val();
+							d.id_tipo_factura = (d.id_tipo_pedido==2) ? 0:jQuery("#id_tipo_factura").val();
+
+							d.id_factura_filtro = jQuery("#id_factura_filtro").val();
+							d.id_cliente = jQuery('.buscar_proveedor').typeahead('val');
+
+    			 }
+     }, 
+	"language": {  
+		"lengthMenu": "Mostrar _MENU_ registros por página",
+		"zeroRecords": "No hay registros",
+		"info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+		"infoEmpty": "No hay registros disponibles",
+		"infoFiltered": "(Mostrando _TOTAL_ de _MAX_ registros totales)",  
+		"emptyTable":     "No hay registros",
+		"infoPostFix":    "",
+		"thousands":      ",",
+		"loadingRecords": "Leyendo...",
+		"processing":     "Procesando...",
+		"search":         "Buscar:",
+		"paginate": {
+			"first":      "Primero",
+			"last":       "Último",
+			"next":       "Siguiente",
+			"previous":   "Anterior"
+		},
+		"aria": {
+			"sortAscending":  ": Activando para ordenar columnas ascendentes",
+			"sortDescending": ": Activando para ordenar columnas descendentes"
+		},
+	},
+
+"infoCallback": function( settings, start, end, max, total, pre ) {
+	    if (settings.json.totales) {
+		    jQuery('#total_pieza').html( 'Total de piezas:'+ settings.json.totales.pieza);
+		  
+			jQuery('#total_kg').html( 'Total de kgs:'+number_format(settings.json.totales.kilogramo, 2, '.', ','));
+			jQuery('#total_metro').html('Total de mts:'+ number_format(settings.json.totales.metro, 2, '.', ','));
+
+		} else {
+		    jQuery('#total_pieza').html( 'Total de piezas: 0');
+			jQuery('#total_kg').html( 'Total de kgs: 0.00');
+			jQuery('#total_metro').html('Total de mts: 0.00');
+
+		}	
+
+
+
+			if (settings.json.recordsTotal==0) {
+				jQuery("#disa_reportes").attr('disabled', true);					
+			} else {
+				jQuery("#disa_reportes").attr('disabled', false);					
+			}
+
+	    return pre
+  	} ,    
+
+
+	"footerCallback": function( tfoot, data, start, end, display ) {
+	   var api = this.api(), data;
+			var intVal = function ( i ) {
+				return typeof i === 'string' ?
+					i.replace(/[\$,]/g, '')*1 :
+					typeof i === 'number' ?
+						i : 0;
+			};
+
+		if  (data.length>0) {   
+				
+				total_metro = api
+					.column( 12 )
+					.data()
+					.reduce( function (a, b) {
+						return intVal(a) + intVal(b);
+					} );
+				total_kilogramo = api
+					.column( 13)
+					.data()
+					.reduce( function (a, b) {
+						return intVal(a) + intVal(b);
+					} );
+				total_pieza = (end-start);	
+
+			        jQuery('#pieza').html( 'Total de piezas:'+ total_pieza);
+			        jQuery('#kg').html( 'Total de kgs:'+number_format(total_kilogramo, 2, '.', ','));
+			        jQuery('#metro').html('Total de mts:'+ number_format(total_metro, 2, '.', ','));
+
+		} else 	{
+			        jQuery('#pieza').html('Total de piezas: 0');
+			        jQuery('#metro').html('Total de mts: 0.00');
+					jQuery('#kg').html('Total de kgs: 0.00');	
+
+		}
+		/*
+		if (( jQuery('#config_almacen').val() == 0 ) ) {
+			api.column(11).visible(false);		
+		}	else {
+			api.column(11).visible(true);		
+		}*/	
+    },
+	"columnDefs": [
+
+				{ 
+		                "render": function ( data, type, row ) {
+
+  								var color;
+		                		switch (row[17]){
+		                			case "12": //normal rojo
+		                				color = 'red';
+		                			   break;	
+		                			case "13": //devolucion verde
+		                				color = 'green';
+		                			   break;
+		                			case "14": //defecto azul
+		                				color = 'blue';
+		                			   break;
+		                			case "15": //ajuste naranja
+		                				color = 'orange';
+		                			   break;
+		                			default: 
+		                				color = 'red';            
+		                		} 
+
+
+
+		                		if (row[16]!='') {
+		                			return row[1]+'<br/><b style="color:'+color+';">Cód: </b>'+row[16];	
+		                		} else {
+		                			return row[1];
+		                		}
+		                		
+		                },
+		                "targets": [1]   //el 3 es la imagen q ya viene formada desde el modelo
+		        },   	
+	    		{ 
+	                "render": function ( data, type, row ) {
+	                		return data;
+	                },
+	                "targets": [0,3,4,5,6,7,8]
+	            },
+
+
+
+				{ 
+	                "render": function ( data, type, row ) {
+                            //prod= '<a href="detalles_imagen/'+jQuery.base64.encode(row[14])+'" data-toggle="modal" data-target="#myModaldashboard">';
+                            prod= '<a href="detalles_imagen/'+jQuery.base64.encode(row[14])+'/'+jQuery.base64.encode(row[1])+'" data-toggle="modal" data-target="#myModaldashboard">';
+                               prod+= row[2];
+                            prod+='</a>';
+                            
+                            return prod; 
+	                },
+	                "targets": [2] //,11
+	            },	 
+
+
+	    		{ 
+	                "render": function ( data, type, row ) {
+	                		return row[11];
+	                },
+	                "targets": [9]
+	            },
+
+	            {
+	                "render": function ( data, type, row ) {
+						texto='<td><button'; 
+							texto+='type="button" identificador="'+row[9]+'" class="btn btn-success btn-block agregar_salida_directa '+row[9]+'">';
+							texto+='<span  class="">Agregar</span>';
+						texto+='</button></td>';
+
+						return texto;	
+	                },
+	                "targets": 10
+	            },
+	    		{ 
+	                "render": function ( data, type, row ) {
+	                		return row[15];
+	                },
+	                "targets": [11]
+	            },	
+
+	            { 
+	             "render": function ( data, type, row ) {
+	                		return row[18];
+	                },
+	                "targets": [12]
+	            },	
+
+
+    			{ 
+	                 "visible": false,
+	                "targets": [13,14,15,16,17,18,19]
+	            }	            
+	        ],
+
+	         "fnHeaderCallback": function( nHead, aData, iStart, iEnd, aiDisplay ) {
+	    			var api = this.api();
+	    			api.column(12).visible(true);	
+	     			
+		
+				if (aData.length >0){
+      				if (aData[0][18]=="-") {
+                		api.column(12).visible(false);	
+                		
+                	} else {
+                		api.column(12).visible(true);	
+		    			
+		     			
+                	}
+                } else {
+	                	api.column(12).visible(false);	
+                }
+		         
+                //mostrar codigo en función del rol
+                api.column(0).visible(true);	
+				if (aData.length >0){
+      				if (aData[0][19]==2) {
+                		api.column(0).visible(false);	
+                		
+                	} else {
+                		api.column(0).visible(true);	
+		    			
+		     			
+                	}
+                } else {
+	                	api.column(0).visible(false);	
+                }		          
+
+	                
+			},
+});	
+
+
+
+jQuery('#salida_directa').dataTable( {
+	"processing": true,
+	"serverSide": true,
+	"ajax": {
+            	"url" : "procesando_salida_directa",
+         		"type": "POST",
+     }, 
+
+	"language": {  
+		"lengthMenu": "Mostrar _MENU_ registros por página",
+		"zeroRecords": "No hay registros",
+		"info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+		"infoEmpty": "No hay registros disponibles",
+		"infoFiltered": "(Mostrando _TOTAL_ de _MAX_ registros totales)",  
+		"emptyTable":     "No hay registros",
+		"infoPostFix":    "",
+		"thousands":      ",",
+		"loadingRecords": "Leyendo...",
+		"processing":     "Procesando...",
+		"search":         "Buscar:",
+		"paginate": {
+			"first":      "Primero",
+			"last":       "Último",
+			"next":       "Siguiente",
+			"previous":   "Anterior"
+		},
+		"aria": {
+			"sortAscending":  ": Activando para ordenar columnas ascendentes",
+			"sortDescending": ": Activando para ordenar columnas descendentes"
+		},
+	},
+"infoCallback": function( settings, start, end, max, total, pre ) {
+	    if (settings.json.totales) {
+		    
+		    if (settings.json.totales.pieza==0) {
+		    	jQuery(".disabledme").prop('disabled', false);	
+		    } else {
+		    	jQuery(".disabledme").prop('disabled', true);	
+		    }		    
+
+		    jQuery('#total_pieza2').html( 'Total de piezas:'+ settings.json.totales.pieza);
+			jQuery('#total_kg2').html( 'Total de kgs:'+number_format(settings.json.totales.kilogramo, 2, '.', ','));
+			jQuery('#total_metro2').html('Total de mts:'+ number_format(settings.json.totales.metro, 2, '.', ','));
+
+		} else {
+			jQuery(".disabledme").prop('disabled', false);	
+		    jQuery('#total_pieza2').html( 'Total de piezas: 0');
+			jQuery('#total_kg2').html( 'Total de kgs: 0.00');
+			jQuery('#total_metro2').html('Total de mts: 0.00');
+
+
+		}	
+
+	    return pre
+  	} ,    
+
+
+	"footerCallback": function( tfoot, data, start, end, display ) {
+	   var api = this.api(), data;
+			var intVal = function ( i ) {
+				return typeof i === 'string' ?
+					i.replace(/[\$,]/g, '')*1 :
+					typeof i === 'number' ?
+						i : 0;
+			};
+
+		if  (data.length>0) {   
+				
+				total_metro = api
+					.column( 11 )
+					.data()
+					.reduce( function (a, b) {
+						return intVal(a) + intVal(b);
+					} );
+				total_kilogramo = api
+					.column( 12)
+					.data()
+					.reduce( function (a, b) {
+						return intVal(a) + intVal(b);
+					} );
+				total_pieza = (end-start);	
+
+			        jQuery('#pieza2').html( 'Total de piezas:'+ total_pieza);
+			        jQuery('#kg2').html( 'Total de kgs:'+number_format(total_kilogramo, 2, '.', ','));
+			        jQuery('#metro2').html('Total de mts:'+ number_format(total_metro, 2, '.', ','));
+
+		} else 	{
+			        jQuery('#pieza2').html('Total de piezas: 0');
+			        jQuery('#metro2').html('Total de mts: 0.00');
+					jQuery('#kg2').html('Total de kgs: 0.00');	
+
+		}	
+	/*	if (( jQuery('#config_almacen').val() == 0 )  ) {
+			api.column(11).visible(false);		
+		}	else {
+			api.column(11).visible(true);		
+		}*/
+    },
+	"columnDefs": [
+				{ 
+		                "render": function ( data, type, row ) {
+
+								var color;
+		                		switch (row[16]){
+		                			case "12": //normal rojo
+		                				color = 'red';
+		                			   break;	
+		                			case "13": //devolucion verde
+		                				color = 'green';
+		                			   break;
+		                			case "14": //defecto azul
+		                				color = 'blue';
+		                			   break;
+		                			case "15": //ajuste naranja
+		                				color = 'orange';
+		                			   break;
+		                			default: 
+		                				color = 'red';            
+		                		} 
+
+
+		                		if (row[15]!='') {
+		                			return row[1]+'<br/><b style="color:'+color+';">Cód: </b>'+row[15];	
+		                		} else {
+		                			return row[1];
+		                		}
+		                		
+		                },
+		                "targets": [1]   //el 3 es la imagen q ya viene formada desde el modelo
+		        },   	
+
+	    		{ 
+	                "render": function ( data, type, row ) {
+	                		return data;
+	                },
+	                "targets": [0,3,4,5,6,7,8]
+	            },	
+
+				{ 
+	                "render": function ( data, type, row ) {
+                            prod= '<a href="detalles_imagen/'+jQuery.base64.encode(row[13])+'/'+jQuery.base64.encode(row[1])+'" data-toggle="modal" data-target="#myModaldashboard">';
+                               prod+= row[2];
+                            prod+='</a>';
+                            
+                            return prod; 
+	                },
+	                "targets": [2] //,11
+	            },	 
+
+	    		{ 
+	                "render": function ( data, type, row ) {
+	                		return row[10];
+	                },
+	                "targets": [9]
+	            },	            
+	            {
+	                "render": function ( data, type, row ) {
+						
+						texto='<td><button'; 
+							texto+='type="button" identificador="'+row[9]+'" class="btn btn-danger btn-block quitar_salida_directa">';
+							texto+='<span class="letra_quitar">Quitar</span>';
+						texto+='</button></td>';
+						return texto;	
+	                },
+	                "targets": 10
+	            },
+	            {
+	                "render": function ( data, type, row ) {
+						
+						return row[14];	
+	                },
+	                "targets": 11
+	            },
+	            {
+	                "render": function ( data, type, row ) {
+						
+						return row[17];	
+	                },
+	                "targets": 12
+	            },	            	            
+				{ 
+	                 "visible": false,
+	                "targets": [13,14,15,16,17,18]
+	            }		            
+	        ],
+ 		"fnHeaderCallback": function( nHead, aData, iStart, iEnd, aiDisplay ) {
+	    			var api = this.api();
+	    			api.column(12).visible(true);	
+	     			
+		
+				if (aData.length >0){
+      				if (aData[0][17]=="-") {
+                		api.column(12).visible(false);	
+                		
+                	} else {
+                		api.column(12).visible(true);	
+		    			
+		     			
+                	}
+                } else {
+	                	api.column(12).visible(false);	
+                }
+
+		  //mostrar codigo en función del rol
+               api.column(0).visible(true);  
+	        	if (aData.length >0){
+	              if (aData[0][18]==2) {
+	                    api.column(0).visible(false); 
+	                    
+	                  } else {
+	                    api.column(0).visible(true);  
+	              
+	              
+	                  }
+	                } else {
+	                    api.column(0).visible(false); 
+	                } 
+			          
+
+		                
+				},
+});	
+
+
+
+
+
+
+//Agregar las estradas a salidas
+jQuery('table').on('click','.agregar_salida_directa', function (e) {
+	//console.log(jQuery('button.activo').attr('data'));
+	jQuery(this).attr('disabled', true);
+	identificador = (jQuery(this).attr('identificador'));
+	movimiento = jQuery("#movimiento").val();
+	id_tipo_pedido = jQuery("#id_tipo_pedido").val();
+	id_tipo_factura = ((id_tipo_pedido==2) || (id_tipo_pedido==3)) ? 0 : jQuery("#id_tipo_factura").val();
+	var id_cliente = jQuery('.buscar_proveedor').typeahead('val');
+	       on_off  = jQuery('button.activo').attr('data'); //jQuery('.on-off[class!="btn-outline"]').attr('data');    //jQuery('#on-off').prop('checked');
+		jQuery('#foo').css('display','block');
+		var spinner = new Spinner(opts).spin(target);
+
+	jQuery.ajax({
+		        url : 'agregar_salida_directa',
+		        data : { 
+		        	identificador: identificador,
+		        	movimiento: movimiento,
+		        	movimiento_unico : jQuery("#movimiento_unico").val(),
+		        	id_tipo_pedido: id_tipo_pedido,
+		        	id_tipo_factura: id_tipo_factura,
+		        	id_cliente: id_cliente,
+		        	on_off : ((on_off=='editar_tienda') ? 1 : ((on_off=='editar_bodega') ? 2 : 0) ),
+		        	id_cargador : jQuery('.buscar_cargador').typeahead("val"),
+		        },
+		        type : 'POST',
+		        dataType : 'json',
+		        success : function(data) {	
+						if(data.exito != true){
+								spinner.stop();
+								jQuery('#foo').css('display','none');
+								jQuery('#messages').css('display','block');
+								jQuery('#messages').addClass('alert-danger');
+								jQuery('#messages').html(data.mensaje);
+								jQuery('html,body').animate({
+									'scrollTop': jQuery('#messages').offset().top
+								}, 1000);
+
+						}else{
+
+							jQuery('#salida_directa').dataTable().fnDraw();
+							jQuery('#entrada_directa').dataTable().fnDraw();
+
+								spinner.stop();
+								jQuery('#foo').css('display','none');
+
+
+								jQuery.ajax({
+									        url : 'conteo_tienda',
+									        data : { 
+									        	tipo: 'tienda',
+									        },
+									        type : 'POST',
+									        dataType : 'json',
+									        success : function(data) {	
+									        	MY_Socket.sendNewPost(data.vendedor+' - '+data.tienda,'agregar_salida_directa');
+												return false;
+									        }
+								});								
+							 
+						}
+		        }
+	});			
+
+   jQuery(this).attr('disabled', false);				        
+});
+
+ 
+//Quitar las salidas y retornarlas a estradas 
+jQuery('table').on('click','.quitar_salida_directa', function (e) {
+	jQuery(this).attr('disabled', true);				        
+
+	identificador = (jQuery(this).attr('identificador'));
+	jQuery.ajax({
+		        url : 'quitar_salida_directa', //
+		        data : { 
+		        	identificador: identificador
+		        },
+		        type : 'POST',
+		        dataType : 'json',
+		        success : function(data) {	
+						if(data.exito != true){
+							//aqui es donde va el mensaje q no se ha copiado
+						}else{
+							jQuery('#salida_directa').dataTable().fnDraw();
+							jQuery('#entrada_directa').dataTable().fnDraw();
+
+								jQuery.ajax({
+									        url : 'conteo_tienda',
+									        data : { 
+									        	tipo: 'tienda',
+									        },
+									        type : 'POST',
+									        dataType : 'json',
+									        success : function(data) {	
+									        	MY_Socket.sendNewPost(data.vendedor+' - '+data.tienda,'quitar_salida_directa');
+									        	return false;
+	
+									        }
+								});								
+							 
+						}
+
+
+		        }
+	});			
+	jQuery(this).attr('disabled', false);				        			        
+
+});
+
+
+
+
+
+
+
+
+//1-ventas(A,B), 2-Surtidos(S), 3-bodega(G)
+jQuery('body').on('click','#conf_salida_directa', function (e) {
+	num_mov=jQuery('#movimiento').val();
+	id_tipo_pedido = jQuery("#id_tipo_pedido").val();
+	id_tipo_factura = ( (id_tipo_pedido==2) || (id_tipo_pedido==3) ) ? 0:jQuery("#id_tipo_factura").val();
+	  factor_salida =  (id_tipo_pedido==2)  ? "S" : ((id_tipo_pedido==3) ? "G" : jQuery("#id_tipo_factura option:selected").text() ) ;	
+
+	on_off  = jQuery('button.activo').attr('data'); 
+	proveedor=jQuery('.buscar_proveedor').typeahead("val");
+
+	jQuery('#foo').css('display','block');
+	var spinner = new Spinner(opts).spin(target);
+
+	jQuery.ajax({
+		        url : '/salida_directa_definitiva',
+		        data : { 
+		        	num_mov: num_mov,
+		        	id_tipo_pedido:id_tipo_pedido,
+		        	id_tipo_factura:id_tipo_factura,
+		        	factor_salida: factor_salida,
+		        	cliente: proveedor, 
+		      		id_operacion_pedido  : ((on_off=='editar_tienda') ? 97 : ((on_off=='editar_bodega') ? 98 : 4) ),
+		      		         id_cargador : jQuery('.buscar_cargador').typeahead("val"),
+
+		        },
+		        type : 'POST',
+		        dataType : 'json',
+		        success : function(datos) {	
+		        
+						if(datos.exito != true){
+								spinner.stop();
+								jQuery('#foo').css('display','none');
+								jQuery('#messages').css('display','block');
+								jQuery('#messages').addClass('alert-danger');
+								jQuery('#messages').html(datos.mensaje);
+								jQuery('html,body').animate({
+									'scrollTop': jQuery('#messages').offset().top
+								}, 1000);
+
+						}else{
+								 jQuery.redirect('/validar_salida_pedido',
+								 			{ 
+										        	   id_cargador:datos.campos.id_cargador,
+										          	       num_mov:datos.campos.movimiento_unico_apartado,
+										       id_operacion_pedido:datos.campos.id_operacion_pedido,
+										        	    id_almacen:datos.campos.id_almacen,
+
+									        },
+								  'POST', '');   // 'POST', '_blank'); 
+
+						}
+		        }
+	});						        
+});
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
 	//,  #proveedor_pedido
     jQuery("#producto_pedido, #composicion_pedido, #ancho_pedido, #color_pedido, #proveedor_pedido").on('change', function(e) {
     	
@@ -7798,12 +8467,16 @@ jQuery('body').on('click','#conf_pedido', function (e) {
 
 
 		if  ( (hash_url=="/generar_pedidos") )   {  
-
 				comienzo=true; //para indicar que start comience en 0;
 				var oTable =jQuery('#pedido_entrada').dataTable();
 				oTable._fnAjaxUpdate();
     	}	
 
+		if  ( (hash_url=="/salida_directa") )   {  
+				comienzo=true; //para indicar que start comience en 0;
+				var oTable =jQuery('#entrada_directa').dataTable();
+				oTable._fnAjaxUpdate();
+    	}	
 
 
      });
@@ -7917,18 +8590,29 @@ jQuery('body').on('click','#limpiar_filtro', function (e) {
 });	
 
 
-jQuery('#id_almacen_generar_pedido').change(function(e) {
-	//alert('aa');
+//jQuery('#id_almacen_generar_pedido').change(function(e) {
+jQuery('body').on('change','#id_almacen_generar_pedido', function (e) {
+
 	jQuery('.buscar_proveedor').typeahead('val','');
 	comienzo=true; //para indicar que start comience en 0;
-	var oTable =jQuery('#pedido_entrada').dataTable();
+	
+	if  ( (hash_url=="/salida_directa") )   {  
+		var oTable =jQuery('#entrada_directa').dataTable();
+	} else {
+		var oTable =jQuery('#pedido_entrada').dataTable();	
+	}
+
 	oTable._fnAjaxUpdate();		
 		
 	
 });
 
 jQuery("#id_factura_filtro").on('change', function(e) {
-	jQuery('#pedido_entrada').dataTable().fnDraw();
+	if  ( (hash_url=="/salida_directa") )   {  
+		var oTable =jQuery('#entrada_directa').dataTable().fnDraw();
+	} else {
+		var oTable =jQuery('#pedido_entrada').dataTable().fnDraw();	
+	}
 });
 
 jQuery('#pedido_entrada').dataTable( {
@@ -7957,6 +8641,8 @@ jQuery('#pedido_entrada').dataTable( {
  		 				   	     d.ancho = jQuery('#ancho_pedido').val();  		  
  		 					  d.id_color = jQuery('#color_pedido').val();  		  
  		 				  d.id_proveedor = jQuery('#proveedor_pedido').val();  
+
+
  		 				    d.id_almacen = (jQuery("#id_tipo_pedido").val()==3) ?  jQuery('#id_almacen_generar_pedido').val() : 0;  
 
 							d.id_tipo_pedido = jQuery("#id_tipo_pedido").val();
@@ -8195,10 +8881,13 @@ jQuery('#pedido_entrada').dataTable( {
 
   //cuando entre por vez primera, q actualice todas las dependencia
 	var hash_url = window.location.pathname;
-	if  ( (hash_url=="/generar_pedidos") )   {  
-		//jQuery("#producto_pedido, #composicion_pedido, #ancho_pedido, #color_pedido, #proveedor_pedido").trigger('change');
+	if  ( (hash_url=="/generar_pedidos") || (hash_url=="/salida_directa") )   {  
+		
 		jQuery("#producto_pedido").trigger('change');
 	}	
+
+
+	
 
 
 
@@ -8436,6 +9125,7 @@ jQuery('body').on('click','.on-off', function (e) {
 
 
 	if (jQuery(this).attr('data') == "editar_bodega") {  //Bodega
+		//alert('bbb');
 		 	jQuery('#id_tipo_pedido option[value="3"]').prop('selected', true);
 		 	jQuery("#id_tipo_pedido").trigger('change');
 
@@ -8459,8 +9149,10 @@ jQuery('body').on('click','.on-off', function (e) {
 
 jQuery('#id_tipo_pedido[pantalla="generar_pedidos"]').on('change', function(e) {
 
-
+ 
 	if  (jQuery(this).val()==3) { //bodega
+
+
 		 //aqui
 		 jQuery('.tipo_factura').css('display','none');			
 
@@ -8480,7 +9172,7 @@ jQuery('#id_tipo_pedido[pantalla="generar_pedidos"]').on('change', function(e) {
 			 jQuery('button[data="editar_proveedor"]').addClass('activo');
 		}	 
 	} else {  //venta
-		
+		//alert(jQuery(this).val());	
 		jQuery('.tipo_factura').css('display','block');	
 		if (jQuery('button[data="editar_bodega"]').hasClass('activo') ) {
 			 jQuery('button[data="editar_proveedor"]').siblings().removeClass('activo');
@@ -8495,11 +9187,27 @@ jQuery('#id_tipo_pedido[pantalla="generar_pedidos"]').on('change', function(e) {
 	jQuery('.buscar_proveedor').prop('name', jQuery('button.on-off.activo').attr('data') );
 	jQuery('.buscar_proveedor').typeahead("val",'');  //borrar la casilla
 
-	jQuery('#pedido_entrada').dataTable().fnDraw();
+	
+
+	if  ( (hash_url=="/salida_directa") )   {  
+		var oTable =jQuery('#entrada_directa').dataTable().fnDraw();
+	} else {
+		var oTable =jQuery('#pedido_entrada').dataTable().fnDraw();	
+	}
+
+
+
 });
 
 jQuery("#id_tipo_factura").on('change', function(e) {
-	jQuery('#pedido_entrada').dataTable().fnDraw();
+	
+	if  ( (hash_url=="/salida_directa") )   {  
+		var oTable =jQuery('#entrada_directa').dataTable().fnDraw();
+	} else {
+		var oTable =jQuery('#pedido_entrada').dataTable().fnDraw();	
+	}
+
+
 });
 
 
@@ -8509,13 +9217,16 @@ jQuery('#id_tipo_pedido[pantalla="generar_pedidos"], #id_tipo_factura[pantalla="
 	consecutivo_actual = (( (jQuery("#id_tipo_pedido").val() == 1) && (jQuery("#id_tipo_factura").val()==1) ) ? jQuery("#conse_factura").val() : jQuery("#conse_remision").val() );
 	consecutivo_actual = ( (jQuery("#id_tipo_pedido").val()==2) ? jQuery("#conse_surtido").val() : consecutivo_actual);
 	consecutivo_actual = ( (jQuery("#id_tipo_pedido").val()==3) ? jQuery("#conse_bodega").val() : consecutivo_actual);
+	
 	//activar almacen 
-	if (jQuery("#id_tipo_pedido").val()==3) {
-		jQuery('.id_almacen_generar_pedido').css('display','block');
+	if  ( (hash_url=="/generar_pedidos") )   {  
+		if (jQuery("#id_tipo_pedido").val()==3) {
+			jQuery('.id_almacen_generar_pedido').css('display','block');
 
-	} else {
-		jQuery('.id_almacen_generar_pedido').css('display','none');
-	}
+		} else {
+			jQuery('.id_almacen_generar_pedido').css('display','none');
+		}
+	}	
 	jQuery("#movimiento").val(consecutivo_actual);
 
 

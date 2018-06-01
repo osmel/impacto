@@ -61,7 +61,7 @@
           $id_session = $this->db->escape($this->session->userdata('id'));
           
           $this->db->distinct();          
-          $this->db->select('m.id_tipo_pedido,m.id_tipo_factura,m.on_off');
+          $this->db->select('m.id_tipo_pedido,m.id_tipo_factura,m.on_off, c.nombre cargador');
           
           //$this->db->select("(CASE WHEN m.on_off = 1 THEN t.nombre ELSE p.nombre END ) AS nombre");          
 
@@ -82,6 +82,7 @@
           $this->db->join($this->proveedores.' As p' , 'p.id = m.consecutivo_venta','LEFT');
           $this->db->join($this->catalogo_tiendas.' As t' , 't.id = m.consecutivo_venta','LEFT');
           $this->db->join($this->almacenes.' As a' , 'a.id = m.consecutivo_venta','LEFT');
+          $this->db->join($this->cargadores.' As c' , 'c.id = m.id_cargador','LEFT');
 
           $where = '(  ( m.id_usuario_apartado = '.$id_session.' ) AND   ( m.id_apartado = 4 ) )'; 
           $this->db->where($where);
@@ -610,6 +611,11 @@
             $this->db->set( 'movimiento_unico_apartado', $data['movimiento_unico']);
             //$this->db->set( 'movimiento_unico', $data['movimiento_unico']);
 
+            if (isset($data['id_cargador'])) {
+                $this->db->set( 'id_cargador', $data['id_cargador']);   
+                $this->db->set( 'peso_real', 'cantidad_um',false);   
+            }
+
             $this->db->set( 'consecutivo_venta', $data['id_cliente']);
 
 
@@ -650,6 +656,9 @@
             $this->db->set( 'on_off', 0);
             $this->db->set( 'id_tienda_origen', 0);
             $this->db->set( 'movimiento_unico_apartado', 0);
+            //para salida directa
+            $this->db->set( 'id_cargador', 0);
+            $this->db->set( 'peso_real', 0);     
 
             
             
@@ -842,7 +851,7 @@
                 
                 $this->db->select('m.movimiento_unico_apartado, m.consecutivo_venta'); //consecutivos
 
-                $this->db->select('m.id,  m.factura, m.id_descripcion, m.id_operacion,m.devolucion');
+                $this->db->select('m.id,  m.factura, m.id_descripcion, m.id_operacion,m.id_operacion_pedido, m.devolucion');
                 $this->db->select('m.id_color, m.id_composicion, m.id_calidad, m.referencia');
                 $this->db->select('m.id_medida, m.cantidad_um, m.cantidad_royo, m.ancho, m.precio, m.codigo, m.comentario');
                 $this->db->select('m.id_estatus, m.id_lote, m.consecutivo, m.id_cargador, m.id_usuario, m.fecha_mac fecha');
@@ -877,6 +886,50 @@
         }     
 
 
+          public function campos( $data ){
+
+                $id_session = $this->session->userdata('id');
+                $fecha_hoy = date('Y-m-d H:i:s');  
+
+                $this->db->select("SQL_CALC_FOUND_ROWS *", FALSE); //
+
+
+                
+                $this->db->select('m.movimiento_unico_apartado, m.consecutivo_venta'); //consecutivos
+
+                $this->db->select('m.id,  m.factura, m.id_descripcion, m.id_operacion,m.id_operacion_pedido, m.devolucion');
+                $this->db->select('m.id_color, m.id_composicion, m.id_calidad, m.referencia');
+                $this->db->select('m.id_medida, m.cantidad_um, m.cantidad_royo, m.ancho, m.precio, m.codigo, m.comentario');
+                $this->db->select('m.id_estatus, m.id_lote, m.consecutivo, m.id_cargador, m.id_usuario, m.fecha_mac fecha');
+
+                $this->db->select('c.hexadecimal_color, u.medida');
+                $this->db->select("prod.codigo_contable");  
+
+                $this->db->from($this->registros.' as m');
+                $this->db->join($this->productos.' As prod' , 'prod.referencia = m.referencia','LEFT');
+                $this->db->join($this->colores.' As c' , 'c.id = m.id_color','LEFT');
+                $this->db->join($this->unidades_medidas.' As u' , 'u.id = m.id_medida','LEFT');
+
+                
+                //filtro de busqueda
+                $where = '(
+                          (
+                            ( m.id_usuario_apartado = "'.$id_session.'" ) and  ( m.id_apartado =  5 ) 
+                            AND ( m.movimiento_unico_apartado = '.$data['consecutivo_unico'].' )
+                            AND  ( m.id_operacion_pedido = '.$data['id_operacion_pedido'].' )
+                            
+                          ) 
+                  )';   
+                $this->db->where($where);
+                $result = $this->db->get();
+
+                if ( $result->num_rows() > 0 )
+                   return $result->row();
+                else
+                   return False;
+                $result->free_result();
+       
+        }     
 
 
   

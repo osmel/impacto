@@ -190,45 +190,17 @@
 					<?php } ?>	
 
 
-					 <?php if  ( ( ( $perfil == 1 ) || (in_array(2, $coleccion_id_operaciones)) ) && ($this->session->userdata('config_salida')==1) ) { ?>
-						<li id="bar_salidas">
-							<a title="Generar Salidas del Almacén." href="<?php echo base_url(); ?>salidas" class="ttip color-blanco">Salidas</a> 
-						</li>
-					<?php } ?>		
-
 					
-					 <?php if ( ( $perfil == 1 ) || (in_array(4, $coleccion_id_operaciones)) || (in_array(97, $coleccion_id_operaciones)) || (in_array(98, $coleccion_id_operaciones)) || (in_array(2, $coleccion_id_operaciones)) ) { ?>
+					 <?php if ( ( $perfil == 1 ) || (in_array(4, $coleccion_id_operaciones)) || (in_array(97, $coleccion_id_operaciones)) || (in_array(98, $coleccion_id_operaciones)) || 
+					 	(in_array(2, $coleccion_id_operaciones)) || (in_array(94, $coleccion_id_operaciones)) || (in_array(95, $coleccion_id_operaciones))
+
+					  ) { ?>
 						
-					 	<?php  if ($this->session->userdata('config_newsalida')==1) { ?>
+						<li id="<?php echo ($this->session->userdata('config_newsalida')==1) ? 'bar_salida' :'bar_generar_pedidos';?>">
+							<a title="Generar Salidas del Almacén." href="<?php echo base_url(); ?><?php echo ($this->session->userdata('config_newsalida')==1) ? 'salida_directa' :'generar_pedidos'; ?>" class="ttip color-blanco"> <?php echo ($this->session->userdata('config_newsalida')==1) ? 'Salidas':'Pedidos'; ?></a> 
+						</li>
 
-								<li id="bar_generar_pedidos" class="dropdown dropdown-user">
-		                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-		                            <span class="username username-hide-on-mobile color-blanco"> <i class="fa fa-angle-down"></i> Salidas </span>
-		                            
-		                        </a>
-		                       		 <ul class="dropdown-menu dropdown-menu-default">
-										 <?php if ( ( $perfil == 1 ) || (in_array(4, $coleccion_id_operaciones)) || (in_array(97, $coleccion_id_operaciones)) || (in_array(98, $coleccion_id_operaciones))  ) { ?>
-										<li>
-											<a title="Pedidos desde una tienda o punto de venta." href="<?php echo base_url(); ?>generar_pedidos" class="ttip ">Pedido</a> 
-										</li>
-										<?php } ?>	
-
-										<?php if ( ( $perfil == 1 ) || (in_array(2, $coleccion_id_operaciones))  ) { ?>
-										<li>
-											<a title="Pedidos desde una tienda o punto de venta." href="<?php echo base_url(); ?>salidas" class="ttip ">Salida</a> 
-										</li>
-										<?php } ?>	
-
-			                        </ul>
-			                    </li>
-	                     <?php } else { ?>	
-	                     		 <?php if ( ( $perfil == 1 ) || (in_array(4, $coleccion_id_operaciones)) || (in_array(97, $coleccion_id_operaciones)) || (in_array(98, $coleccion_id_operaciones))  ) { ?>
-	                     		 
-				        				<li id="bar_generar_pedidos">
-											<a title="Pedidos desde una tienda o punto de venta." href="<?php echo base_url(); ?>generar_pedidos" class="ttip color-blanco">Pedido</a> 
-										</li>
-								<?php } ?>			
-						<?php } ?>	
+					 	
 					<?php } ?>	
 
 					 <?php if ( ( $perfil == 1 ) || (in_array(3, $coleccion_id_operaciones)) ) { ?>

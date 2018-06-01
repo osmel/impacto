@@ -423,7 +423,49 @@ $route['confirmar_proc_apartado_sino']    = 'salidas/confirmar_proc_apartado_sin
 $route['proc_apartado_pedido_definitivo/(:any)/(:any)/(:any)/(:any)']      = 'salidas/proc_apartado_pedido_definitivo/$1/$2/$3/$4';
 $route['validar_apartado_pedido']    = 'salidas/validar_apartado_pedido';
 
+/////////////////////////////////////////Salida_directa///////////////////
 
+
+$route['salida_directa']									= 'salida_directa/listado_salida_directa';
+
+$route['procesando_entrada_directa']    					= 'salida_directa/procesando_entrada_directa';
+$route['procesando_salida_directa']    						= 'salida_directa/procesando_salida_directa';
+$route['agregar_salida_directa']    							= 'salida_directa/agregar_salida_directa';
+$route['quitar_salida_directa']		    					= 'salida_directa/quitar_salida_directa';
+$route['salida_directa_definitiva']							= 'salida_directa/salida_directa_definitiva';
+
+
+$route['confirmar_salida_directa']    						= 'salida_directa/confirmar_salida_directa';
+
+/*
+
+
+$route['conteo_tienda']   									= 'salida_directa/conteo_tienda';
+$route['pedidos']											= 'salida_directa/listado_apartados';
+$route['apartado_detalle/(:any)/(:any)/(:any)'] 			= 'salida_directa/apartado_detalle/$1/$2/$3';
+$route['pedido_detalle/(:any)/(:any)/(:any)']    			= 'salida_directa/pedido_detalle/$1/$2/$3';
+$route['pedido_completado_detalle/(:any)/(:any)/(:any)']    = 'salida_directa/pedido_completado_detalle/$1/$2/$3';
+$route['eliminar_apartado_detalle/(:any)/(:any)/(:any)']    = 'salida_directa/eliminar_apartado_detalle/$1/$2/$3';
+$route['validar_eliminar_apartado_detalle']    				= 'salida_directa/validar_eliminar_apartado_detalle';
+$route['eliminar_pedido_detalle/(:any)/(:any)/(:any)']    	= 'salida_directa/eliminar_pedido_detalle/$1/$2/$3';
+$route['validar_eliminar_pedido_detalle']    				= 'salida_directa/validar_eliminar_pedido_detalle';
+$route['imprimir_reportes_pedido']    						= 'salida_directa/imprimir_reportes_pedido';
+$route['procesando_pedido_pendiente']       				= 'salida_directa/procesando_pedido_pendiente';
+
+
+$route['procesando_pedido_detalle']    						= 'salida_directa/procesando_pedido_detalle';
+$route['incluir_pedido']    								= 'salida_directa/incluir_pedido';
+$route['excluir_pedido']    								= 'salida_directa/excluir_pedido';
+$route['incluir_apartado']    								= 'salida_directa/incluir_apartado';
+$route['excluir_apartado']    								= 'salida_directa/excluir_apartado';
+$route['procesando_apartado_pendiente'] 					= 'salida_directa/procesando_apartado_pendiente';
+$route['procesando_detalle'] 								= 'salida_directa/procesando_detalle';
+$route['cargar_dependencia_pedido']   						= 'salida_directa/cargar_dependencia_pedido';
+$route['procesando_pedido_completo']       					= 'salida_directa/procesando_pedido_completo';
+$route['procesando_completo_detalle']    					= 'salida_directa/procesando_completo_detalle';
+$route['marcando_prorroga_venta']    						= 'salida_directa/marcando_prorroga_venta';
+$route['marcando_prorroga_tienda']    						= 'salida_directa/marcando_prorroga_tienda';
+*/
 
 /////////////////////////////////////////HOME///////////////////
 $route['procesando_home']    		= 'main/procesando_home';

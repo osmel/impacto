@@ -248,8 +248,6 @@ public function confirmar_proc_pedido_sino(){  //5252
 //2da regilla(modal).una vez confirmado los peso_real y cargador procesa la salida, mediante esta modal
 public function proc_salida_pedido_definitivo($num_mov,$id_cargador,$id_operacion_pedido,$id_almacen){
 
-
-	
 		  if ( $this->session->userdata('session') !== TRUE ) {
 		      redirect('');
 		    } else {
@@ -300,7 +298,7 @@ public function proc_salida_pedido_definitivo($num_mov,$id_cargador,$id_operacio
 
 //cuando dice "si" con la modal de confirmar el pedido
 public function validar_salida_pedido(){ 
-
+  
 
 
 			 $data['id_cargador'] = $this->input->post('id_cargador');
@@ -356,8 +354,10 @@ public function validar_salida_pedido(){
 				}
 
 	} else {
-		//Print_r('a'); DIE;
+		
 		$parametros=( $this->modelo_salida->procesando_operacion_pedido_salida($data) );	
+
+		
 
 		//redirect('detalles_salidas/'.base64_encode($parametros->mov_salida_unico).'/'.base64_encode($parametros->cliente).'/'.base64_encode($parametros->cargador).'/'.base64_encode($data['id_tipo_pedido']).'/'.base64_encode($data['id_tipo_factura'])  ) ;
 		redirect('detalles_salidas/'.base64_encode($parametros->mov_salida_unico).'/'.base64_encode($parametros->cliente).'/'.base64_encode($parametros->cargador).'/'.base64_encode($data['id_operacion_salida'])  ) ;
@@ -972,10 +972,6 @@ public function validar_confirmar_salida_sino(){
 		   }   	
 
 }	
-
-	
-
-
 
 
 

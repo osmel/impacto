@@ -46,6 +46,8 @@
   <script type="text/javascript" src="<?php echo base_url(); ?>js/moment.js"></script>    
   <script type="text/javascript" src="<?php echo base_url(); ?>js/daterangepicker.js"></script>   
 
+  <!--Este es para redirect con post desde jquery -->
+  <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.redirect.js"></script>
   <script type="text/javascript" src="<?php echo base_url(); ?>js/sistema.js"></script>
 
   <!--
@@ -105,6 +107,7 @@
     <script src="<?php echo base_url();?>nodejs/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
     <script src="<?php echo base_url();?>js/socket.js"></script>
   <?php } ?>      
+
 
   <script type="text/javascript" src="<?php echo base_url(); ?>js/catalogos.js"></script>
 

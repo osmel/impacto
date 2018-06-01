@@ -196,7 +196,7 @@
 
 					  ) { ?>
 						
-						<li id="<?php echo ($this->session->userdata('config_newsalida')==1) ? 'bar_salida' :'bar_generar_pedidos';?>">
+						<li id="<?php echo ($this->session->userdata('config_newsalida')==1) ? 'bar_generar_pedidos' :'bar_generar_pedidos';?>">
 							<a title="Generar Salidas del Almacén." href="<?php echo base_url(); ?><?php echo ($this->session->userdata('config_newsalida')==1) ? 'salida_directa' :'generar_pedidos'; ?>" class="ttip color-blanco"> <?php echo ($this->session->userdata('config_newsalida')==1) ? 'Salidas':'Pedidos'; ?></a> 
 						</li>
 

@@ -121,7 +121,7 @@ class Main extends CI_Controller {
 
 			
 			case '/generar_pedidos':
-			case '/salidas':
+			case '/salida_directa':
 				$this->session->set_userdata('modulo', "generar_pedidos");		
 			break;
 
